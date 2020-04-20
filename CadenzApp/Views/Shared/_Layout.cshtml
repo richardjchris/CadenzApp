@@ -1,0 +1,66 @@
+﻿@*@{ 
+    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
+    var request = HttpContext.Current.Request;
+    var appUrl = HttpRuntime.AppDomainAppVirtualPath;
+    var username = HttpContext.Current.User.Identity.Name;
+    if (appUrl == "/")
+    {
+        appUrl = "";
+    }
+    var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+    ViewBag.baseUrl = baseUrl + "/";
+    ViewBag.username = username;
+    ViewBag.Language = Session["Language"] ?? "id";
+    ViewBag.Flag = Session["Flag"] ?? "flag-icon-id";
+    ViewBag.SidenavLock = Session["SidenavLock"] ?? true;
+}*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/materialize/css/materialize.css" />
+    <link rel="stylesheet" href="~/lib/materialize/css/style.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <partial name="_Header" />
+    <partial name="_Sidenav" />
+    <div id="main">
+        <div class="row">
+            <div class="col s12">
+                <div class="container">
+                    <div class="section">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer footer footer-static footer-light navbar-border navbar-shadow">
+        <div class="footer-copyright">
+            <span>&copy; 2020 CadenzApp</span>
+            <span class="right hide-on-small-only">
+                Created as part of Digital Media Studio Capstone project
+            </span>
+            <span class="right hide-on-med-and-up show-on-small">
+                Digital Media Studio Capstone project
+            </span>
+        </div>
+    </footer>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script type="text/javascript" src="~/lib/materialize/js/materialize.js"></script>*@
+    <script type="text/javascript" src="~/lib/materialize/js/vendors.min.js"></script>
+    <script type="text/javascript" src="~/lib/materialize/js/plugins.js"></script>
+    <script type="text/javascript" src="~/js/Layouts/Sidenav.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script>
+        $('.dropdown-trigger').dropdown();
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
