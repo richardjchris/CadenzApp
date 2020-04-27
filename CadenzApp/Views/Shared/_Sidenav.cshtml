@@ -1,10 +1,16 @@
-﻿<aside class="sidenav-main nav-collapsible sidenav-dark sidenav-active-rounded nav-lock">
+﻿<aside class="sidenav-main nav-collapsible sidenav-light sidenav-active-rounded nav-lock">
     <div class="brand-sidebar">
         <h1 class="logo-wrapper">
-            <a class="brand-logo darken-1" href="~">
-                <img class="hide-on-med-and-down" src="@Url.Content("~/images/wireframe.png")" alt="CadenzApp logo">
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="@Url.Content("~/images/wireframe.png")" alt="CadenzApp logo">
-                <span class="logo-text hide-on-med-and-down">CadenzApp</span>
+            <a class="brand-logo darken-1" href="~/" style="padding-top: 16px;">
+                @*<img class="hide-on-med-and-down" src="@Url.Content("~/images/favicon.png")" alt="CadenzApp logo" style="height: 20px;">
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="@Url.Content("~/images/alt-icon.png")" alt="CadenzApp logo" style="width: auto !important;">
+                <span class="logo-text hide-on-med-and-down bold-text">
+                    <span style="color: #007EFF">Cadenz</span><span style="color: #5D5D5D">App</span>
+                </span>*@
+                <img class="logo-text" src="@Url.Content("~/images/favicon.png")" alt="CadenzApp logo" style="height: 35px;"/>
+                <span class="logo-text text-image hide-on-med-and-down">
+                    <img class="logo-text" src="@Url.Content("~/images/logo-text.png")" alt="CadenzApp logo" style="height: 25px;" />
+                </span>
             </a>
             <a class="navbar-toggler" href="#">
                 <i class="material-icons">radio_button_checked</i>
@@ -13,16 +19,21 @@
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="bold">
-            <a class="waves-effect waves-cyan" href="">
+            <a class="sidenav-link active waves-effect waves-cyan" asp-controller="Home" asp-action="Index">
                 <i class="material-icons">home</i> Dashboard
             </a>
         </li>
         <li class="bold">
-            <a class="waves-effect waves-cyan" href="">
-                <i class="material-icons">people</i> Students
+            <a class="sidenav-link waves-effect waves-cyan" asp-controller="Practice" asp-action="Index">
+                <i class="material-icons">people</i> Practice
             </a>
         </li>
         <li class="bold">
+            <a class="sidenav-link waves-effect waves-cyan" asp-controller="Students" asp-action="Index">
+                <i class="material-icons">people</i> Students
+            </a>
+        </li>
+        @*<li class="bold">
             <a class="waves-effect waves-cyan" href="">
                 <i class="material-icons">today</i> Lessons Planner
             </a>
@@ -31,10 +42,10 @@
             <a class="waves-effect waves-cyan" href="">
                 <i class="material-icons">contacts</i> Contact
             </a>
-        </li>
+        </li>*@
         <li class="bold">
-            <a class="waves-effect waves-cyan" href="">
-                <i class="material-icons">folder</i> Files
+            <a class="sidenav-link waves-effect waves-cyan" asp-controller="Resources" asp-action="Index">
+                <i class="material-icons">folder</i> Resources
             </a>
         </li>
     </ul>

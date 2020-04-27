@@ -28,6 +28,16 @@ namespace CadenzApp.Controllers
             return View();
         }
 
+        public IActionResult SignIn()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Login", "Home");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

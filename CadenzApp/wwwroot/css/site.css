@@ -1,1 +1,17 @@
-﻿
+﻿/*#region Sidenav Logo*/
+a.brand-logo .text-image {
+    padding-left: initial;
+    position: relative;
+    top: -2.5px;
+}
+/*#endregion*/
+
+/*#region Typography*/
+bold-text {
+    font-weight: bold !important; 
+}
+
+.navbar-light span {
+    color: rgba(0, 0, 0, .87);
+}
+/*#endregion*/

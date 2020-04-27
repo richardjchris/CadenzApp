@@ -1,6 +1,6 @@
 ﻿<header class="page-topbar" id="header">
     <div class="navbar navbar-fixed">
-        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark" style="background-color: #465064">
+        <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light" @*style="background-color: #465064"*@>
             <div class="nav-wrapper">
                 <ul class="navbar-list right">
                     @*<li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li>*@
@@ -19,7 +19,7 @@
                         </a>
                     </li>
                     <li class="hide-on-small-and-down">
-                        <span>@*@ViewBag.username*@Username</span>
+                        <span>@ViewBag.username</span>
                     </li>
                 </ul>
                 @*
@@ -62,7 +62,7 @@
                 <ul class="dropdown-content" id="profile-dropdown">
                     <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
                     <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">settings</i> Settings</a></li>
-                    <li><a class="grey-text text-darken-1" href="user-login.html"><i class="material-icons">keyboard_tab</i> Logout</a></li>
+                    <li><a class="grey-text text-darken-1" asp-controller="Home" asp-action="Logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
                 </ul>
             </div>
             @*<nav class="display-none search-sm">
