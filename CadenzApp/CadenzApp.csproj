@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
+    <Folder Include="wwwroot\images\Photos\" />
   </ItemGroup>
 
   <ItemGroup>

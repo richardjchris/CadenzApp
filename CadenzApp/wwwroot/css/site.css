@@ -14,4 +14,19 @@ bold-text {
 .navbar-light span {
     color: rgba(0, 0, 0, .87);
 }
+
+.clickable-list {
+    text-decoration: initial;
+    color: initial;
+}
 /*#endregion*/
+
+/*collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) .circle {
+    position: absolute;
+    left: 15px;
+    display: inline-block;
+    overflow: hidden;
+    width: 42px;
+    height: 42px;
+    vertical-align: middle;
+}*/
