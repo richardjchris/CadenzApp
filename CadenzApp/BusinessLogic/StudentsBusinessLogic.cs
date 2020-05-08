@@ -8,7 +8,17 @@ namespace CadenzApp.BusinessLogic
 {
 	public class StudentsBusinessLogic
 	{
-		public string AddStudent(string Student)
+		public string InsertStudent(string Student)
+		{
+			return "Success";
+		}
+
+		public string GetStudent(int ID)
+		{
+			return "Student";
+		}
+
+		public string DeleteStudent(string Student)
 		{
 			return "Success";
 		}
