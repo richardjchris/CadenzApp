@@ -1,0 +1,31 @@
+﻿/* user view css*/
+/*-------------*/
+.users-view .media .avatar {
+    margin-right: .6rem;
+}
+
+.users-view .media .users-view-name {
+    font-size: 1.47rem;
+}
+
+.users-view .quick-action-btns a {
+    margin-left: 1rem;
+}
+
+users-view .quick-action-btns button {
+    margin-left: 1rem;
+}
+
+.users-view .users-view-timeline {
+    padding: 2rem;
+}
+
+    .users-view .users-view-timeline h6 span {
+        font-size: 2rem;
+        vertical-align: middle;
+    }
+
+.users-view .striped td:first-child {
+    /* dynamic width change of first td*/
+    width: 140px;
+}

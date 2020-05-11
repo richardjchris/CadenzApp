@@ -3,6 +3,10 @@
     ViewData["Title"] = "Students List";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/user-view.css" />
+}
+
 <div>
     <button class="btn waves-effect app-accent">
         Add student
@@ -43,13 +47,7 @@
         </div>
 
         <div class="col s12 m8">
-            <div class="card">
-                <div class="card-content">
-                    <h1 class="card-title">
-                        Student Name
-                    </h1>
-                </div>
-            </div>
+            <partial name="_UserView" />
         </div>
     </div>
 </div>

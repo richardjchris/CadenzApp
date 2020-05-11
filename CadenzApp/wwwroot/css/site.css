@@ -15,6 +15,10 @@
     background-color: #DF617F;
 }
 
+.text-app-accent {
+    color: #DF617F;
+}
+
 button.btn.app-accent:focus {
     background-color: #DF617F;
 }

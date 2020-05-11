@@ -1,0 +1,91 @@
+﻿<div class="users-view">
+    <div class="card-panel">
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="display-flex media">
+                    <a href="#" class="avatar">
+                        <img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">
+                    </a>
+                    <div class="media-body">
+                        <h6 class="media-heading">
+                            <span class="name-field">Student Name</span>
+                            <span class="grey-text">@@</span>
+                            <span class="email-field grey-text">Email</span>
+                        </h6>
+                        <span class="text-app-accent">Instrument Name</span>
+                        <br />
+                        <span>
+                            <span class="year-of-study-field">Year X,</span>
+                            <span class="empty-space"> </span>
+                            <span class="place-of-occupation-field">Place of Occupation</span>
+                        </span>
+                        @*<span>ID:</span>
+                            <span class="users-view-id">300</span>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
+                <a class="callBtn btn-floating btn-flat waves-effect waves-light light-green"><i class="material-icons">call</i></a>
+                <a class="emailBtn btn-floating btn-flat waves-effect waves-light light-blue"><i class="material-icons">mail_outline</i></a>
+                <a class="emailBtn btn-floating btn-flat waves-effect waves-light materialize-red"><i class="material-icons">today</i></a>
+                <a class="uploadBtn btn-floating btn-flat waves-effect waves-light black"><i class="material-icons">note_add</i></a>
+                @*<a href="#" class="btn-small indigo">Edit</a>*@
+            </div>
+        </div>
+
+        <div class="divider mt-2 mb-3"></div>
+
+        <div class="row">
+            <!--#region Info Table-->
+            @*
+            <div class="card">
+                <div class="card-content">
+                    <table class="striped">
+                        <tbody>
+                            <tr>
+                                <td><i class="material-icons">wc</i> Gender:</td>
+                                <td class="gender-field" data-fieldname="gender">No gender</td>
+                            </tr>
+                            <tr>
+                                    <td><i class="material-icons">home</i> <span data-i18n="Address">Address</span>:</td>
+                                    <td class="address-field"></td>
+                            </tr>
+                            <tr>
+                                <td><i class="material-icons">email</i> E-mail:</td>
+                                <td class="email-field" data-fieldname="email">No email</td>
+                            </tr>
+                            <tr>
+                                    <td><i class="material-icons">phone</i> Phone:</td>
+                                    <td class="phone-field"></td>
+                            </tr>
+                            <tr>
+                                <td><i class="material-icons">supervisor_account</i> Tutor:</td>
+                                <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
+                            </tr>
+                            <tr>
+                                <td><i class="material-icons">supervisor_account</i> Tutor:</td>
+                                <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>*@
+            <!--#endregion-->
+            <div class="card">
+                <div class="card-content">
+                    <h5 class="indigo-text mb-2">Practice Log</h5>
+
+                    <div id="placeholder">
+                        <h6>
+                            <span>Student doesn't have any practice hours logged.</span>
+                        </h6>
+                    </div>
+
+                    <div id="practice-hours">
+                        <img src="@Url.Content("~/images/Practice_Log_Placeholder.png")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
