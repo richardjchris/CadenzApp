@@ -41,7 +41,7 @@ a.brand-logo .text-image {
 /*#endregion*/
 
 /*#region Typography*/
-bold-text {
+.bold-text {
     font-weight: bold !important; 
 }
 
@@ -52,6 +52,10 @@ bold-text {
 .clickable-list {
     text-decoration: initial;
     color: initial;
+}
+
+.text-clickable {
+    cursor: pointer;
 }
 /*#endregion*/
 

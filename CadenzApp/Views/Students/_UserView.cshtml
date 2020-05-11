@@ -38,51 +38,88 @@
         <div class="row">
             <!--#region Info Table-->
             @*
-            <div class="card">
-                <div class="card-content">
-                    <table class="striped">
-                        <tbody>
-                            <tr>
-                                <td><i class="material-icons">wc</i> Gender:</td>
-                                <td class="gender-field" data-fieldname="gender">No gender</td>
-                            </tr>
-                            <tr>
-                                    <td><i class="material-icons">home</i> <span data-i18n="Address">Address</span>:</td>
-                                    <td class="address-field"></td>
-                            </tr>
-                            <tr>
-                                <td><i class="material-icons">email</i> E-mail:</td>
-                                <td class="email-field" data-fieldname="email">No email</td>
-                            </tr>
-                            <tr>
-                                    <td><i class="material-icons">phone</i> Phone:</td>
-                                    <td class="phone-field"></td>
-                            </tr>
-                            <tr>
-                                <td><i class="material-icons">supervisor_account</i> Tutor:</td>
-                                <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
-                            </tr>
-                            <tr>
-                                <td><i class="material-icons">supervisor_account</i> Tutor:</td>
-                                <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>*@
+        <div class="card">
+            <div class="card-content">
+                <table class="striped">
+                    <tbody>
+                        <tr>
+                            <td><i class="material-icons">wc</i> Gender:</td>
+                            <td class="gender-field" data-fieldname="gender">No gender</td>
+                        </tr>
+                        <tr>
+                                <td><i class="material-icons">home</i> <span data-i18n="Address">Address</span>:</td>
+                                <td class="address-field"></td>
+                        </tr>
+                        <tr>
+                            <td><i class="material-icons">email</i> E-mail:</td>
+                            <td class="email-field" data-fieldname="email">No email</td>
+                        </tr>
+                        <tr>
+                                <td><i class="material-icons">phone</i> Phone:</td>
+                                <td class="phone-field"></td>
+                        </tr>
+                        <tr>
+                            <td><i class="material-icons">supervisor_account</i> Tutor:</td>
+                            <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
+                        </tr>
+                        <tr>
+                            <td><i class="material-icons">supervisor_account</i> Tutor:</td>
+                            <td class="tutor-field" data-fieldname="tutor name">No tutor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>*@
             <!--#endregion-->
             <div class="card">
                 <div class="card-content">
-                    <h5 class="indigo-text mb-2">Practice Log</h5>
+                    <h6 class="bold-text mb-2">Practice Log</h6>
 
-                    <div id="placeholder">
-                        <h6>
+                    <div class="placeholder-text practice-hours">
+                        <h5 class="display-none">
                             <span>Student doesn't have any practice hours logged.</span>
-                        </h6>
+                        </h5>
+                        <h8>Placeholder image</h8>
                     </div>
 
                     <div id="practice-hours">
-                        <img src="@Url.Content("~/images/Practice_Log_Placeholder.png")" />
+                        <div class="placeholder-image center">
+                            <img style="width: auto; height: auto; max-height: 200px" src="@Url.Content("~/images/Practice_Log_Placeholder.png")" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <h6 class="bold-text mb-2">
+                            Current Tasks
+                            <i class="text-clickable bold-text text-app-accent material-icons right">add</i>
+                        </h6>
+
+                        <div class="tasks mb-3">
+                            <span class="tasks placeholder-text">No tasks. Click the + icon to start creating a task</span>
+                        </div>
+
+                        <span class="text-clickable grey-text right"><small>View More</small></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <h6 class="bold-text mb-2">
+                            Recent Uploads
+                            <i class="text-clickable bold-text text-app-accent material-icons right">add</i>
+                        </h6>
+
+                        <div class="uploads mb-3">
+                            <span class="uploads placeholder-text">No uploads. Click the + icon to upload a file</span>
+                        </div>
+
+                        <span class="text-clickable grey-text right"><small>View More</small></span>
                     </div>
                 </div>
             </div>
