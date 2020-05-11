@@ -20,14 +20,17 @@ namespace CadenzApp.Controllers
 
         public JsonResult InsertStudent(string Student)
         {
-            return Json(BsLogic.AddStudent(Student), System.Web.Mvc.JsonRequestBehavior.AllowGet);
+            return Json(BsLogic.InsertStudent(Student), System.Web.Mvc.JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult EditStudent(string Student)
+        public JsonResult GetStudent(int StudentID)
         {
-
+            return Json(BsLogic.GetStudent(StudentID), System.Web.Mvc.JsonRequestBehavior.AllowGet);
         }
 
-        public 
+        public JsonResult DeleteStudent(int StudentID)
+        {
+            return Json(BsLogic.DeleteStudent(StudentID), System.Web.Mvc.JsonRequestBehavior.AllowGet);
+        }
     }
 }

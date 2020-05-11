@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Data.SqlClient;
-using e_Tracker.Models;
-using e_Tracker.Models.EDMX;
+using CadenzApp.Models;
+using CadenzApp.Models.EDMX;
 
 namespace CadenzApp.BusinessLogic
 {
@@ -18,7 +18,7 @@ namespace CadenzApp.BusinessLogic
 			return "Student";
 		}
 
-		public string DeleteStudent(string Student)
+		public string DeleteStudent(int ID)
 		{
 			return "Success";
 		}
