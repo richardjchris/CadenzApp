@@ -3,9 +3,21 @@
     ViewData["Title"] = "Resources";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/lib/materialize/css/pages/app-file-manager.css" />
+}
+
 <div>
     <div class="row">
-        
+        <div class="section app-file-manager-wrapper">
+            <div class="app-file-overlay"></div>
+
+            <partial name="_Sidebar" />
+            <partial name="_Content" />
+            <partial name="_SettingsSidenav" />
+    </div>
+    <div class="content-overlay"></div>
+</div>
     </div>
 </div>
 
