@@ -1,4 +1,34 @@
-﻿/*#region Sidenav Logo*/
+﻿/*#region App Theme*/
+#cadenzapp .sidenav-main {
+    background-color: #41476C;
+}
+
+#cadenzapp .sidenav-main .brand-sidebar {
+    background-color: initial;
+}
+
+#cadenzapp .sidenav li a.active {
+    background: #DF617F;
+}
+
+.app-accent {
+    background-color: #DF617F;
+}
+
+button.btn.app-accent:focus {
+    background-color: #DF617F;
+}
+
+button.btn.app-accent:hover {
+    background-color: #f68ca5;
+}
+
+button.btn.app-accent:active {
+    background-color: #b93857;
+}
+/*#endregion*/
+
+/*#region Sidenav Logo*/
 a.brand-logo .text-image {
     padding-left: initial;
     position: relative;

@@ -2,7 +2,7 @@
 using System.Web;
 using System.Data.SqlClient;
 using CadenzApp.Models;
-using CadenzApp.Models.EDMX;
+//using CadenzApp.Models;
 
 namespace CadenzApp.BusinessLogic
 {
