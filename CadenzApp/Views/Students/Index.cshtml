@@ -5,6 +5,7 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/user-view.css" />
+    <link rel="stylesheet" href="~/lib/materialize/vendors/sweetalert/sweetalert.css" />
 }
 
 <div>
@@ -25,8 +26,8 @@
                     <ul class="collection">
                         <li class="collection-item avatar">
                             <a href="#" class="clickable-list">
-                                <img src="@Url.Content("~/images/Portrait_Placeholder.png")" class="circle">
-                                <span class="title">Anna Campbell</span>
+                                <img src="@Url.Content("~/images/photos/anne.png")" class="circle">
+                                <span class="title">Anne Campbell</span>
                                 <p>Lorem</p>
                             </a>
                         </li>
@@ -54,3 +55,11 @@
         </div>
     </div>
 </div>
+
+<partial name="_TaskForm" />
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/Students/student-info.js"></script>
+    <script type="text/javascript" src="~/js/Students/tasks.js"></script>
+    <script type="text/javascript" src="~/lib/materialize/vendors/sweetalert/sweetalert.min.js"></script>
+}

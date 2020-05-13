@@ -1,7 +1,7 @@
 ﻿@{ 
-    ViewBag.IconJPG = "a";
-    ViewBag.IconPDF = "a";
-    ViewBag.IconMP3 = "a";
+    ViewBag.IconJPG = "/images/icon/jpg-image.png";
+    ViewBag.IconPDF = "/images/icon/pdf-image.png";
+    ViewBag.IconDOC = "/images/icon/doc-image.png";
 }
 
 <!-- content-right start -->
@@ -51,7 +51,7 @@
                                 <div class="fonticon">
                                     <i class="material-icons">more_vert</i>
                                 </div>
-                                <img class="recent-file" src="../../../app-assets/images/icon/pdf.png" height="38" width="30" alt="Card image cap">
+                                <img class="recent-file" src="@ViewBag.IconPDF" height="38" width="30" alt="Card image cap">
                             </div>
                             <div class="app-file-details">
                                 <div class="app-file-name font-weight-700">Canon-Sheet.pdf</div>
@@ -125,7 +125,7 @@
                                 <div class="fonticon">
                                     <i class="material-icons">more_vert</i>
                                 </div>
-                                <img class="recent-file" src="../../../app-assets/images/icon/pdf.png" height="38" width="30" alt="Card image cap">
+                                <img class="recent-file" src="@ViewBag.IconJPG" height="38" width="30" alt="Card image cap">
                             </div>
                             <div class="app-file-details">
                                 <div class="app-file-name font-weight-700">Banner.jpg</div>
@@ -159,12 +159,12 @@
                                 <div class="fonticon">
                                     <i class="material-icons">more_vert</i>
                                 </div>
-                                <img class="recent-file" src="@ViewBag.IconMP3" height="38" width="30" alt="Card image cap">
+                                <img class="recent-file" src="@ViewBag.IconDOC" height="38" width="30" alt="Card image cap">
                             </div>
                             <div class="app-file-details">
-                                <div class="app-file-name font-weight-700">Canon.mp3</div>
+                                <div class="app-file-name font-weight-700">Assignment-Specification.docx</div>
                                 <div class="app-file-size">3.4 MB</div>
-                                <div class="app-file-type">Mp3 File</div>
+                                <div class="app-file-type">Word document</div>
                             </div>
                         </div>
                     </div>

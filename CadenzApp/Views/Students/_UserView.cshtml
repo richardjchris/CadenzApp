@@ -4,20 +4,28 @@
             <div class="col s12 m7">
                 <div class="display-flex media">
                     <a href="#" class="avatar">
-                        <img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">
+                        @*<img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">*@
+                        <img src="@Url.Content("~/images/photos/anne.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">
                     </a>
                     <div class="media-body">
                         <h6 class="media-heading">
-                            <span class="name-field">Student Name</span>
-                            <span class="grey-text">@@</span>
-                            <span class="email-field grey-text">Email</span>
+                            @*<span class="name-field">Student Name</span>*@
+                            <span class="name-field">Anne Campbell</span>
+                            @*<span class="grey-text">@@</span>
+                            <span class="email-field grey-text">Email</span>*@
                         </h6>
-                        <span class="text-app-accent">Instrument Name</span>
+                        @*<span class="text-app-accent">Instrument Name</span>*@
+                        <span class="text-app-accent">Guitarist</span>
                         <br />
-                        <span>
+                        @*<span>
                             <span class="year-of-study-field">Year X,</span>
                             <span class="empty-space"> </span>
                             <span class="place-of-occupation-field">Place of Occupation</span>
+                        </span>*@
+                        <span>
+                            <span class="year-of-study-field">Year 12,</span>
+                            <span class="empty-space"> </span>
+                            <span class="place-of-occupation-field">Baulkham Hills High School</span>
                         </span>
                         @*<span>ID:</span>
                             <span class="users-view-id">300</span>*@
@@ -95,12 +103,14 @@
                     <div class="card-content">
                         <h6 class="bold-text mb-2">
                             Current Tasks
-                            <i class="text-clickable bold-text text-app-accent material-icons right">add</i>
+                            <i data-target="taskModal" class="modal-trigger text-clickable bold-text text-app-accent material-icons right">add</i>
                         </h6>
 
                         <div class="tasks mb-3">
                             <span class="tasks placeholder-text">No tasks. Click the + icon to start creating a task</span>
                         </div>
+
+                        <ul id="task-list" class="collection"></ul>
 
                         <span class="text-clickable grey-text right"><small>View More</small></span>
                     </div>

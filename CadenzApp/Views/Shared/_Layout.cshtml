@@ -43,12 +43,13 @@
     </footer>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     @*<script type="text/javascript" src="~/lib/materialize/js/materialize.js"></script>*@
-<script>
+    <script>
+        var baseUrl = "@ViewBag.baseUrl";
+        var controller = "@ViewBag.Controller";
         //Opens sidenav collapsibles on page init, has to be done before plugins.js
         $("document").ready(function () {
             var lang = "@ViewBag.Language";
-            var baseUrl = "@ViewBag.baseUrl";
-            var controller = "@ViewBag.Controller";
+
             var link = $("a.sidenav-link[href='/" + controller + "']");
             if (link.length) {
                 $("a.sidenav-link").removeClass("active");
@@ -60,13 +61,20 @@
             }
         });
 
-</script>
+    </script>
     <script type="text/javascript" src="~/lib/materialize/js/vendors.min.js"></script>
     <script type="text/javascript" src="~/lib/materialize/js/plugins.js"></script>
+    <script type="text/javascript" src="~/lib/moment.min.js"></script>
     <script type="text/javascript" src="~/js/Layouts/Sidenav.js"></script>
     <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/js/preloader.js"></script>
     <script>
         $('.dropdown-trigger').dropdown();
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            container: 'body'
+        });
+        $('.modal').modal();
     </script>
     @RenderSection("Scripts", required: false)
 </body>
