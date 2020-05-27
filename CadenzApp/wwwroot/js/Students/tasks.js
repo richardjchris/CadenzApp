@@ -54,7 +54,7 @@ function PopulateForm(taskID) {
                 }
                 $("#inputTaskName").val(object.name);
                 $("#inputTaskDescription").val(object.description);
-                $("#inputTaskDate").val(object.dateEnd);
+                $("#inputTaskDate").val(moment(object.dateEnd).format("yyyy-MM-DD"));
                 $('label').addClass('active');
             });
         }
@@ -140,7 +140,7 @@ function FormCheck() {
 
     var detail = {
         "Id": ($("#inputTaskID").val().length ? $("#inputTaskID").val() : 0),
-        "Type": $("#inputTaskType").find("input:first").prop("checked", true).val(),
+        "Type": $("#inputTaskType").find("input:checked").val(),
         "Name": $("#inputTaskName").val(),
         "Description": $("#inputTaskDescription").val(),
         "StatusId": null,

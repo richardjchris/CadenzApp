@@ -38,7 +38,7 @@ namespace CadenzApp.BusinessLogic
                     var Existing = DB.MasterTask.Where(o => o.Id.Equals(Object.Id)).FirstOrDefault();
                     Existing.StudentId = Object.StudentId;
                     Existing.TutorId = Object.TutorId;
-                    Existing.StatusId = Object.StatusId;
+                    //Existing.StatusId = Object.StatusId;
                     Existing.Type = Object.Type;
                     Existing.Name = Object.Name;
                     Existing.Description = Object.Description;
