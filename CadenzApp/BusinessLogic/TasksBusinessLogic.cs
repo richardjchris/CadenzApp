@@ -45,7 +45,7 @@ namespace CadenzApp.BusinessLogic
                     Existing.DateEnd = Object.DateEnd;
                     Existing.ModifiedBy = Username;
                     Existing.ModifiedDate = UpdateTrail;
-                    ReturnMess = Existing.Name + "\n" + DB.SaveChanges().ToString();
+                    ReturnMess = DB.SaveChanges().ToString();
                 }
                 return ReturnMess;
             }

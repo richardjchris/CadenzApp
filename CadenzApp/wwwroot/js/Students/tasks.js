@@ -35,7 +35,6 @@ function PopulateTask() {
 
 $(document).on('click', ".editBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
-    console.log(taskID);
     PopulateForm(taskID);
 });
 
@@ -49,7 +48,7 @@ function PopulateForm(taskID) {
         success: function (result) {
             $.each(result, function (index, object) {
                 $("#inputTaskID").val(object.id);
-                if (result.type) {
+                if (object.type) {
                     $("#inputTaskType").find("input[value='" + object.type + "']").prop("checked", true);
                 }
                 $("#inputTaskName").val(object.name);
@@ -60,34 +59,6 @@ function PopulateForm(taskID) {
         }
         //$(".name-field").text(result.);
     });
-}
-
-$(".modalClose").click(function () {
-    swal({
-        title: "Close form?",
-        text: "Any changes made will not be saved.",
-        icon: 'warning',
-        buttons: [
-            "Cancel",
-            "Close"
-        ],
-        dangerMode: true
-    }).then(function (isConfirm) {
-        if (isConfirm) {
-            $('.modal').modal('close');
-        }
-    })
-});
-
-$('.modal.form').modal({
-    dismissible: false,
-    onCloseEnd: function () {
-        ClearForm();
-    }
-});
-
-function ClearForm() {
-    $("input").val("");
 }
 
 //#region Form Submission
@@ -107,7 +78,6 @@ function SubmitTask() {
         return;
     }
     else {
-        console.log(data);
         $.ajax({
             url: baseUrl + controller + "/InsertTask",
             type: 'json',
