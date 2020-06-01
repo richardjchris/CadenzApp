@@ -21,7 +21,7 @@ function PopulateTask() {
                     var parsedDate = (!object.dateEnd ? "No date" : moment(object.dateEnd).format("D MMM"));
                     var li = '<li data-value="' + object.id + '" class="collection-item">';
                     li += '<div><span class="bold-text">' + object.name + '</span>';
-                    li += '<a href="#!" class="secondary-content"><i class="grey-text material-icons">clear</i></a>'
+                    li += '<a href="#!" class="deleteBtn secondary-content"><i class="grey-text material-icons">clear</i></a>'
                     li += '<a href="#!" data-target="taskModal" class="modal-trigger editBtn secondary-content"><i class="grey-text material-icons">edit</i></a>';
                     li += '<p>' + object.description + '</p>';
                     li += '<p class="grey-text">' + parsedDate + '</p></div></li>';
@@ -32,6 +32,13 @@ function PopulateTask() {
         }
     });
 }
+
+$(document).on('click', ".deleteBtn", function () {
+    var taskID = $(this).parent().parent().attr('data-value');
+    if (!await confirm("Delete task?", "Task cannot be undone")) {
+        console.log("yes");
+    });
+});
 
 $(document).on('click', ".editBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
