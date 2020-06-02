@@ -2,12 +2,17 @@
     PopulateTask();
 });
 
+function GetStudentID() {
+    return 1;
+}
+
 function PopulateTask() {
-    var studentID = 1;
+    var studentID = GetStudentID();
     $.ajax({
         url: baseUrl + controller + "/GetTaskList",
         type: "GET",
         data: "StudentID=" + studentID,
+        cache: false,
         success: function (result) {
             $("#task-list").empty();
             if (!result.length) {
@@ -33,10 +38,16 @@ function PopulateTask() {
     });
 }
 
+//#region Event Handlers
 $(document).on('click', ".deleteBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
-    if (!await confirm("Delete task?", "Task cannot be undone")) {
-        console.log("yes");
+    var confirmation = $.Deferred();
+    confirmation.resolve(confirm("Delete task?", "Task cannot be undone"));
+
+    $.when(confirmation).then(function(confirmStatus) {
+        if (confirmStatus) {
+            DeleteTask(taskID);
+        }
     });
 });
 
@@ -47,11 +58,12 @@ $(document).on('click', ".editBtn", function () {
 
 
 function PopulateForm(taskID) {
-    var studentID = 1;
+    var studentID = GetStudentID();
     $.ajax({
         url: baseUrl + controller + "/GetTask",
         type: "GET",
         data: { "StudentID": studentID, "ID": taskID },
+        cache: false,
         success: function (result) {
             $.each(result, function (index, object) {
                 $("#inputTaskID").val(object.id);
@@ -67,6 +79,24 @@ function PopulateForm(taskID) {
         //$(".name-field").text(result.);
     });
 }
+
+function DeleteTask(ID) {
+    var studentID = GetStudentID();
+    $.ajax({
+        url: baseUrl + controller + "/DeleteTask",
+        data: "ID=" + ID,
+        cache: false,
+        error: function () {
+            swal("Error", "Please try again later", "error");
+        },
+        success: function () {
+            swal("", "Your data has been deactivated.", "success").then(function () {
+                reload();
+            })
+        }
+    });
+}
+//#endregion
 
 //#region Form Submission
 $("#submit-tasks").click(function () {
@@ -112,7 +142,7 @@ function SubmitTask() {
 }
 
 function FormCheck() {
-    var studentID = 1;
+    var studentID = GetStudentID();
     var tutorID = 1;
 
     var detail = {

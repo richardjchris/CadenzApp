@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Web;
 using System.Data.SqlClient;
+using CadenzApp.Controllers.Helper;
 using CadenzApp.Models;
 using CadenzApp.Models.DB;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 
 namespace CadenzApp.BusinessLogic
 {
     public class TasksBusinessLogic
     {
         CadenzAppContext DB = new CadenzAppContext();
+        FormHelper Forms = new FormHelper();
+        string Username { get { return Forms.Username; } }
 
         public string InsertTask(MasterTask Object)
         {
@@ -20,7 +24,6 @@ namespace CadenzApp.BusinessLogic
             {
                 //Controllers.Auth.AuthController auth = new Controllers.Auth.AuthController();
                 var UpdateTrail = System.DateTime.Now;
-                var Username = "Jason";
 
                 if (Object.Id == 0)
                 {
@@ -61,7 +64,7 @@ namespace CadenzApp.BusinessLogic
             {
                 if (TaskID == null)
                 {
-                    var data = DB.MasterTask.Where(o => o.StudentId.Equals(StudentID)).ToList();
+                    var data = DB.MasterTask.Where(o => o.StudentId.Equals(StudentID) && o.IsActive.Equals(true)).ToList();
                     return data;
                 }
                 else
@@ -79,7 +82,6 @@ namespace CadenzApp.BusinessLogic
         public string DeleteTask(int ID)
         {
             var UpdateTrail = System.DateTime.Now;
-            var Username = "Jason";
 
             try
             {

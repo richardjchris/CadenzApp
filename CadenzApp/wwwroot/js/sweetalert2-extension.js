@@ -3,6 +3,7 @@
         title: title,
         text: message,
         type: 'warning',
-        showCancelButton: true
+        buttons: true,
+        dangerMode: true
     });
 }
