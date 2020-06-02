@@ -51,24 +51,6 @@ namespace CadenzApp.Controllers
             MasterTask Task = data.ToObject<MasterTask>();
             return Json(TaskBsLogic.InsertTask(Task));
         }
-        
-        //[HttpPost]
-        //public async Task<JsonResult> InsertTask()
-        //{
-        //    using var reader = new StreamReader(HttpContext.Request.Body);
-
-        //    // You shouldn't need this line anymore.
-        //    // reader.BaseStream.Seek(0, SeekOrigin.Begin);
-
-        //    // You now have the body string raw
-        //    var body = await reader.ReadToEndAsync();
-
-        //    // As well as a bound model
-        //    MasterTask Task = JsonConvert.DeserializeObject<MasterTask>(body);
-        //    Console.WriteLine("test");
-        //    var json = Json(TaskBsLogic.InsertTask(Task));
-        //    return json;
-        //}
 
         public JsonResult GetTask(int StudentID, int ID)
         {
