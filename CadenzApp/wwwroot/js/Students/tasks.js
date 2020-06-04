@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿let originalHeader = "Add task";
+let editHeader = "Edit task";
+
+$(document).ready(function () {
     PopulateTask();
 });
 
@@ -42,7 +45,7 @@ function PopulateTask() {
 $(document).on('click', ".deleteBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
     var confirmation = $.Deferred();
-    confirmation.resolve(confirm("Delete task?", "Task cannot be undone"));
+    confirmation.resolve(confirm("Delete task?", "This action cannot be undone.", "warning"));
 
     $.when(confirmation).then(function(confirmStatus) {
         if (confirmStatus) {
@@ -53,6 +56,7 @@ $(document).on('click', ".deleteBtn", function () {
 
 $(document).on('click', ".editBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
+    $(".form-header").text(editHeader);
     PopulateForm(taskID);
 });
 

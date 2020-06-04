@@ -1,8 +1,8 @@
 ﻿<div id="taskModal" class="modal with-header form modal-fixed-footer">
-    <div class="modal-header indigo lighten-1">
+    <div class="modal-header lighten-1">
         <h4 class="white-text">
-            @ViewBag.FormTitle
-            <button class="btn-floating waves-effect waves-light modalClose right pull-s2">
+            <span class="form-header">Add task</span>
+            <button class="btn-floating app-accent waves-effect waves-light modalClose right pull-s2">
                 <i class="material-icons">close</i>
             </button>
         </h4>
@@ -15,31 +15,35 @@
 
                 <div id="inputTaskType" class="input-field radio col s12">
                     <span data-i18n="EmploymentStatus">Task Type</span>
-                    <p>
-                        <label>
-                            <input name="inputTaskType" type="radio" class="with-gap" for="inputStatus" value="T" checked/>
-                            <span>Tutorial</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="inputTaskType" type="radio" class="with-gap" for="inputStatus" value="H" />
-                            <span>Homework</span>
-                        </label>
-                    </p>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="inputTaskName" type="text" required>
-                        <label for="inputTaskName">Name <span class="red-text">*</span></label>
+                    <div class="row">
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <input name="inputTaskType" type="radio" class="with-gap" for="inputStatus" value="T" checked />
+                                    <span>Tutorial</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s6">
+                            <p>
+                                <label>
+                                    <input name="inputTaskType" type="radio" class="with-gap" for="inputStatus" value="H" />
+                                    <span>Homework</span>
+                                </label>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
+                <div class="col s12" style="padding:unset">
+                    <div class="divider mt-0 mb-2"></div>
+                </div>
+                
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="inputTaskDescription" type="text" required>
-                        <label for="inputTaskDescription">Description</label>
+                        <i class="material-icons prefix">font_download</i>
+                        <input id="inputTaskName" type="text" required>
+                        <label for="inputTaskName">Name <span class="red-text">*</span></label>
                     </div>
                 </div>
 
@@ -50,13 +54,21 @@
                         <label for="inputTaskDate">Date</label>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="input-field with-labelIcon col s12">
+                        <i class="material-icons prefix">info</i>
+                        <textarea id="inputTaskDescription" type="text" placeholder="Enter description for task..."></textarea>
+                        <label for="inputTaskDescription">Description</label>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 
     <div class="modal-footer">
-        <button class="btn waves-effect modalClose">Cancel</button>
-        <button id="submit-tasks" type="submit" class="btn waves-effect">
+        <button class="btn app-accent waves-effect modalClose">Cancel</button>
+        <button id="submit-tasks" type="submit" class="btn app-accent waves-effect">
             Submit
             <i class="material-icons customButtonIcon right">send</i>
         </button>

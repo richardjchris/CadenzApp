@@ -1,5 +1,6 @@
 ﻿function ClearForm() {
     $("input").val("");
+    $("textarea").val("");
     $("input").next('label').removeClass("active");
     $(".radio label:first input").prop('checked', true);
 }
@@ -8,7 +9,7 @@
 $(".modalClose").click(function () {
     swal({
         title: "Close form?",
-        text: "Any changes made will not be saved.",
+        text: "Are you sure you want to close this window? Any changes made will not be saved.",
         icon: 'warning',
         buttons: [
             "Cancel",
@@ -26,5 +27,6 @@ $('.modal.form').modal({
     dismissible: false,
     onCloseEnd: function () {
         ClearForm();
+        $('.modal.form .form-header').text(originalHeader);
     }
 });

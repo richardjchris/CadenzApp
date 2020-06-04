@@ -3,6 +3,10 @@
     background-color: #41476C;
 }
 
+.modal-header {
+    background-color: #41476C;
+}
+
 #cadenzapp .sidenav-main .brand-sidebar {
     background-color: initial;
 }
@@ -41,8 +45,25 @@ a.brand-logo .text-image {
 /*#endregion*/
 
 /*#region Typography*/
-.bold-text {
-    font-weight: bold !important; 
+html {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar .notification-badge {
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar-light span {
@@ -57,7 +78,55 @@ a.brand-logo .text-image {
 .text-clickable {
     cursor: pointer;
 }
+
+.swal-modal .swal-text {
+    text-align: center;
+}
 /*#endregion*/
+
+/*#region Textarea*/
+.input-field.with-labelIcon textarea {
+    margin-left: 2.8rem !important;
+    margin-top: 5px;
+}
+
+textarea {
+    padding: 5px 8px;
+    font-size: 90%;
+}
+/*#endregion*/
+
+/*#region Modal Header*/
+.modal.with-header .modal-header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    height: 76px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.modal.with-header .modal-header h4 {
+    margin-top: 8px;
+}
+
+.modal.with-header.modal-fixed-footer {
+    top: 8%;
+    height: 60%;
+    max-height: 100%;
+}
+
+.modal.with-header.modal-fixed-footer .modal-content {
+    margin-top: 76px;
+    height: calc(100% - 132px);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/*#endregion*/
+
 
 /*collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) .circle {
     position: absolute;
