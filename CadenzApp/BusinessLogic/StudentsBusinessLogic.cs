@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Web;
 using System.Data.SqlClient;
-using CadenzApp.Models;
-using CadenzApp.Models.DB;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using CadenzApp.Helper;
+using CadenzApp.Models.DB;
 
 namespace CadenzApp.BusinessLogic
 {
-	public class StudentsBusinessLogic
+	public class StudentsBusinessLogic : BaseBusinessLogic
 	{
-		CadenzAppContext DB = new CadenzAppContext();
-
 		public string InsertStudent(MasterStudent Student)
 		{
 			DB.MasterStudent.Add(Student);

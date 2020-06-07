@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Web;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Linq;
+using CadenzApp.Helper;
+using CadenzApp.Models.DB;
 
 namespace CadenzApp.BusinessLogic
 {
-    public class PracticeBusinessLogic : IBussinessLogic
+    public class PracticeBusinessLogic : BaseBusinessLogic
     {
-        public string InsertTask(Master Object)
+        public string InsertTask(MasterTask Object)
         {
             string ReturnMess;
 

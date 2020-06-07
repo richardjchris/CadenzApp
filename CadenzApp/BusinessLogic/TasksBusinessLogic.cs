@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Web;
 using System.Data.SqlClient;
-using CadenzApp.Controllers.Helper;
-using CadenzApp.Models;
-using CadenzApp.Models.DB;
-using System.Linq;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
+using System.Linq;
+using CadenzApp.Helper;
+using CadenzApp.Models.DB;
 
 namespace CadenzApp.BusinessLogic
 {
-    public class TasksBusinessLogic
+    public class TasksBusinessLogic : BaseBusinessLogic
     {
-        CadenzAppContext DB = new CadenzAppContext();
-        FormHelper Forms = new FormHelper();
-        string Username { get { return Forms.Username; } }
-
         public string InsertTask(MasterTask Object)
         {
             string ReturnMess;
