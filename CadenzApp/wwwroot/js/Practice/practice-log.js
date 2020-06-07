@@ -1,12 +1,29 @@
 ﻿$(document).ready(function () {
-    PopulatePracticeLog();
+    GetInstrumentOptions();
 });
 
 function GetStudentID() {
     return 1;
 }
 
-function PopulatePracticeLog() {
+function GetInstrumentOptions() {
+    $.ajax({
+        url: baseUrl + controller + "/GetInstrumentOptions",
+        type: "GET",
+        cache: false,
+        success: function (data) {
+            $("#inputInstrument").empty().append("<option></option>");
+            console.log(data);
+            $.each(data, function (index, object) {
+                var option = "<option value='" + object.id + "'>" + object.name + "</option>";
+                $("#inputInstrument").append(option);
+            });
+            $(".select2").select2();
+        }
+    });
+}
+
+/*function PopulatePracticeLog() {
     var studentID = GetStudentID();
     $.ajax({
         url: baseUrl + controller + "/GetTaskList",
@@ -50,7 +67,7 @@ function PopulatePracticeLog() {
             }
         }
     });
-}
+}*/
 
 /*#region Event Handler*/
 $(document).on('click', ".addBtn", function () {
@@ -61,7 +78,7 @@ $(document).on('click', ".addBtn", function () {
         if (confirmStatus) {
             SubmitTask();
         }
-    }
+    });
 });
 /*#endregion*/
 
@@ -71,14 +88,14 @@ $("#submit-tasks").click(function () {
 });
 
 function SubmitTask() {
-    if (!CheckDate) {
+    /*if (!CheckDate) {
         swal({
             icon: "error",
             title: "Duplicate date",
             text: "Please choose another date to add."
         });
         return;
-    }
+    }*/
 
     var data = FormCheck();
     if (!data) {
@@ -91,7 +108,7 @@ function SubmitTask() {
     }
     else {
         $.ajax({
-            url: baseUrl + controller + "/InsertTask",
+            url: baseUrl + controller + "/InsertPracticeLog",
             type: 'json',
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -118,19 +135,27 @@ function SubmitTask() {
 
 function FormCheck() {
     var studentID = GetStudentID();
-    var tutorID = 1;
 
     var detail = {
-        "Id": ($("#inputTaskID").val().length ? $("#inputTaskID").val() : 0),
-        "Type": $("#inputTaskType").find("input:checked").val(),
-        "Name": $("#inputTaskName").val(),
-        "Description": $("#inputTaskDescription").val(),
-        "StatusId": null,
-        "DateEnd": $("#inputTaskDate").val(),
+        "Date": $("#inputDate").val(),
+        "PracticeHours": $("#inputLength").val(),
+        "InstrumentId": $("#inputInstrument").val(),
+        "Song": $("#inputSong").val(),
+        "Description": $("#inputDescription").val(),
         "IsActive": true
     };
 
-    if (detail["Name"] == null || detail["Name"] == "") {
+    if (detail["Date"] == null || detail["Date"] == "") {
+        //$.when(FadeOutPreloaderModal()).then(function () {
+        //    swal({
+        //        icon: "error",
+        //        title: "Invalid name",
+        //        text: "Please enter a valid name."
+        //    });
+        //});
+        return null;
+    }
+    else if (!detail["PracticeHours"] == null) {
         //$.when(FadeOutPreloaderModal()).then(function () {
         //    swal({
         //        icon: "error",

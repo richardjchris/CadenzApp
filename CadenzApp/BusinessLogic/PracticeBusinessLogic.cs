@@ -34,7 +34,7 @@ namespace CadenzApp.BusinessLogic
                 {
                     Existing.PracticeHours = Object.PracticeHours;
                     Existing.Song = Object.Song;
-                    Existing.InstrumentID = Object.InstrumentID;
+                    Existing.InstrumentId = Object.InstrumentId;
                     Existing.Description = Object.Description;
                     Existing.ModifiedBy = Username;
                     Existing.ModifiedDate = UpdateTrail;
