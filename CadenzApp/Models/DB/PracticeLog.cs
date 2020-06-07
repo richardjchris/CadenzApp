@@ -9,6 +9,7 @@ namespace CadenzApp.Models.DB
         public DateTime Date { get; set; }
         public decimal? PracticeHours { get; set; }
         public string Song { get; set; }
+        public int InstrumentID { get; set; }
         public string Description { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }

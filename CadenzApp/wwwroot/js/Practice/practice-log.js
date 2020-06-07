@@ -1,11 +1,12 @@
-﻿let originalHeader = "Add task";
-let editHeader = "Edit task";
-
-$(document).ready(function () {
-    PopulateTask();
+﻿$(document).ready(function () {
+    PopulatePracticeLog();
 });
 
-function PopulateTask() {
+function GetStudentID() {
+    return 1;
+}
+
+function PopulatePracticeLog() {
     var studentID = GetStudentID();
     $.ajax({
         url: baseUrl + controller + "/GetTaskList",
@@ -51,66 +52,18 @@ function PopulateTask() {
     });
 }
 
-//#region Event Handlers
-$(document).on('click', ".deleteBtn", function () {
-    var taskID = $(this).parent().parent().attr('data-value');
+/*#region Event Handler*/
+$(document).on('click', ".addBtn", function () {
     var confirmation = $.Deferred();
-    confirmation.resolve(confirm("Delete task?", "This action cannot be undone.", "warning"));
+    confirmation.resolve(confirm("Add practice session?", "This action cannot be undone.", "warning"));
 
-    $.when(confirmation).then(function(confirmStatus) {
+    $.when(confirmation).then(function (confirmStatus) {
         if (confirmStatus) {
-            DeleteTask(taskID);
+            SubmitTask();
         }
-    });
+    }
 });
-
-$(document).on('click', ".editBtn", function () {
-    var taskID = $(this).parent().parent().attr('data-value');
-    $(".form-header").text(editHeader);
-    PopulateForm(taskID);
-});
-
-
-function PopulateForm(taskID) {
-    var studentID = GetStudentID();
-    $.ajax({
-        url: baseUrl + controller + "/GetTask",
-        type: "GET",
-        data: { "StudentID": studentID, "ID": taskID },
-        cache: false,
-        success: function (result) {
-            $.each(result, function (index, object) {
-                $("#inputTaskID").val(object.id);
-                if (object.type) {
-                    $("#inputTaskType").find("input[value='" + object.type + "']").prop("checked", true);
-                }
-                $("#inputTaskName").val(object.name);
-                $("#inputTaskDescription").val(object.description);
-                $("#inputTaskDate").val(moment(object.dateEnd).format("yyyy-MM-DD"));
-                $('label').addClass('active');
-            });
-        }
-        //$(".name-field").text(result.);
-    });
-}
-
-function DeleteTask(ID) {
-    var studentID = GetStudentID();
-    $.ajax({
-        url: baseUrl + controller + "/DeleteTask",
-        data: "ID=" + ID,
-        cache: false,
-        error: function () {
-            swal("Error", "Please try again later", "error");
-        },
-        success: function () {
-            swal("", "Your data has been deactivated.", "success").then(function () {
-                reload();
-            })
-        }
-    });
-}
-//#endregion
+/*#endregion*/
 
 //#region Form Submission
 $("#submit-tasks").click(function () {
@@ -118,7 +71,15 @@ $("#submit-tasks").click(function () {
 });
 
 function SubmitTask() {
-    
+    if (!CheckDate) {
+        swal({
+            icon: "error",
+            title: "Duplicate date",
+            text: "Please choose another date to add."
+        });
+        return;
+    }
+
     var data = FormCheck();
     if (!data) {
         swal({
@@ -181,8 +142,22 @@ function FormCheck() {
     }
     else {
         detail["StudentId"] = studentID;
-        detail["TutorId"] = tutorID;
         return detail;
     }
+}
+
+function CheckDate(date, studentID) {
+    var isExist = false;
+    $.ajax({
+        url: baseUrl + controller + "/CheckDate",
+        type: 'json',
+        contentType: 'application/json',
+        data: { "Date": date, "StudentID": studentID },
+        cache: false,
+        success: function (data) {
+            isExist = data.Bool;
+        }
+    });
+    return isExist;
 }
 //#endregion

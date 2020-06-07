@@ -144,6 +144,8 @@ namespace CadenzApp.Models.DB
 
                 entity.Property(e => e.CreatedDate).HasColumnType("date");
 
+                entity.Property(e => e.InstrumentID).HasColumnName("InstrumentID");
+
                 entity.Property(e => e.PracticeHours).HasColumnType("numeric(4, 2)");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("date");
