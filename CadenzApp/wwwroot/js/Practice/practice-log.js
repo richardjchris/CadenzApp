@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     GetInstrumentOptions();
+    PopulatePracticeLog();
 });
 
 function GetStudentID() {
@@ -13,26 +14,42 @@ function GetInstrumentOptions() {
         cache: false,
         success: function (data) {
             $("#inputInstrument").empty().append("<option></option>");
-            console.log(data);
+            instrumentList = data;
             $.each(data, function (index, object) {
                 var option = "<option value='" + object.id + "'>" + object.name + "</option>";
                 $("#inputInstrument").append(option);
             });
             $(".select2").select2();
         }
-    });
+    }).then(PopulatePracticeLog());
 }
 
-/*function PopulatePracticeLog() {
+function GetInstrumentName(instrumentID) {
+    instrumentList;
+}
+
+function PopulatePracticeLog() {
     var studentID = GetStudentID();
     $.ajax({
-        url: baseUrl + controller + "/GetTaskList",
+        url: baseUrl + controller + "/GetPracticeLogList",
         type: "GET",
         data: "StudentID=" + studentID,
         cache: false,
-        success: function (result) {
-            $("#task-list").empty();
-            if (!result.length) {
+        success: function (data) {
+            var tbody = $("#table tbody").empty();
+            $.each(data, function (index, object) {
+                var date = moment(object.Date).format("YYYY-MM-DD");
+                var td = "<tr>";
+                td += "<td>" + date + "</td>";
+                td += "<td>" + object.PracticeHours + "</td>";
+                td += "<td>" +  +"</td>";
+                td += "<td>" + object.Song + "</td>";
+                td += "<td>" + object.Description + "</td>";
+                td += "</tr>"
+            });
+            $("#table").dataTable();
+            $("#table-wrapper").removeClass("display-none");
+            /*if (!result.length) {
                 $("#task-list").addClass('display-none');
                 $(".tasks.placeholder-text").removeClass('display-none');
             }
@@ -42,32 +59,13 @@ function GetInstrumentOptions() {
                 $.each(result, function (index, object) {
                     var parsedDate = (!object.dateEnd ? "No date" : moment(object.dateEnd).format("D MMM"));
                     var type, colour = "";
-                    switch (object.type) {
-                        case 'T':
-                            type = 'Tutorial';
-                            colour = 'blue'
-                            break;
-                        case 'H':
-                            type = 'Homework';
-                            colour = 'orange darken-2';
-                            break;
-                        default:
-                            break;
-                    }
-                    var li = '<li data-value="' + object.id + '" class="collection-item"><div>';
-                    li += '<div class="chip ' + colour + '">' + type + '</div>'
-                    li += '<span class="bold-text">' + object.name + '</span>';
-                    li += '<a href="#!" class="deleteBtn secondary-content"><i class="grey-text material-icons">clear</i></a>'
-                    li += '<a href="#!" data-target="taskModal" class="modal-trigger editBtn secondary-content"><i class="grey-text material-icons">edit</i></a>';
-                    li += '<p>' + object.description + '</p>';
-                    li += '<p class="grey-text">' + parsedDate + '</p></div></li>';
 
                     $("#task-list").append(li);
                 });
-            }
+            }*/
         }
     });
-}*/
+}
 
 /*#region Event Handler*/
 $(document).on('click', ".addBtn", function () {
