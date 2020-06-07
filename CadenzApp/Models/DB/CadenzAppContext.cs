@@ -23,6 +23,7 @@ namespace CadenzApp.Models.DB
         public virtual DbSet<MasterUserGroup> MasterUserGroup { get; set; }
         public virtual DbSet<MasterUsers> MasterUsers { get; set; }
         public virtual DbSet<PracticeLog> PracticeLog { get; set; }
+        public virtual DbSet<ViewMasterInstrument> ViewMasterInstrument { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -80,10 +81,6 @@ namespace CadenzApp.Models.DB
                 entity.Property(e => e.DateEnd).HasColumnType("date");
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("date");
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(10)
-                    .IsFixedLength();
 
                 entity.Property(e => e.StatusId).HasColumnName("StatusID");
 
@@ -144,11 +141,22 @@ namespace CadenzApp.Models.DB
 
                 entity.Property(e => e.CreatedDate).HasColumnType("date");
 
-                entity.Property(e => e.InstrumentID).HasColumnName("InstrumentID");
-
-                entity.Property(e => e.PracticeHours).HasColumnType("numeric(4, 2)");
+                entity.Property(e => e.InstrumentId).HasColumnName("InstrumentID");
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("date");
+
+                entity.Property(e => e.PracticeHours).HasColumnType("numeric(4, 2)");
+            });
+
+            modelBuilder.Entity<ViewMasterInstrument>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ViewMasterInstrument");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);

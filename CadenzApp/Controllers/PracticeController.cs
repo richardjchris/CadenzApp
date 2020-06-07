@@ -13,6 +13,8 @@ namespace CadenzApp.Controllers
     public class PracticeController : Controller
     {
         protected readonly PracticeBusinessLogic BsLogic = new PracticeBusinessLogic();
+        protected readonly ComboboxBusinessLogic CmbBsLogic = new ComboboxBusinessLogic();
+
         public IActionResult Index()
         {
             return View();
@@ -38,6 +40,11 @@ namespace CadenzApp.Controllers
         public JsonResult DeletePracticeLog(int StudentID, DateTime Date)
         {
             return Json(BsLogic.DeletePracticeLog(StudentID, Date));
+        }
+
+        public JsonResult GetInstrumentOptions()
+        {
+            return Json(CmbBsLogic.GetInstrumentsOption());
         }
     }
 }

@@ -12,18 +12,17 @@ namespace CadenzApp.BusinessLogic
     public class ComboboxBusinessLogic : BaseBusinessLogic
     {
         
-        /*public List<SelectItem> GetInstruments()
+        public List<ViewMasterInstrument> GetInstrumentsOption()
         {
             try
             {
-                var data = DB.MasterInstruments.Where(o => o.IsActive.Equals(true)).ToList();
-                List<SelectItem> newData = new List<SelectItem>() { data}
+                var data = DB.ViewMasterInstrument.Where(o => o.IsActive.Equals(true)).ToList();
                 return data;
             }
             catch (Exception ex)
             {
                 throw new Exception("Error : " + ex.Message);
             }
-        }*/
+        }
     }
 }
