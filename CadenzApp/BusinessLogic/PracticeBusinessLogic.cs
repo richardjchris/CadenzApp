@@ -10,7 +10,7 @@ namespace CadenzApp.BusinessLogic
 {
     public class PracticeBusinessLogic : BaseBusinessLogic
     {
-        public string InsertTask(MasterTask Object)
+        public string InsertPracticeLog(PracticeLog Object)
         {
             string ReturnMess;
 
@@ -18,28 +18,24 @@ namespace CadenzApp.BusinessLogic
             {
                 //Controllers.Auth.AuthController auth = new Controllers.Auth.AuthController();
                 var UpdateTrail = System.DateTime.Now;
+                var Existing = DB.PracticeLog.Where(o => o.StudentId.Equals(Object.StudentId) && o.Date.Equals(Object.Date)).FirstOrDefault();
 
-                if (Object.Id == 0)
+                if (Existing == null)
                 {
-                    Object.IsActive = true;
                     Object.CreatedBy = Username;
                     Object.CreatedDate = UpdateTrail;
                     Object.ModifiedBy = Username;
                     Object.ModifiedDate = UpdateTrail;
-                    DB.MasterTask.Add(Object);
+                    DB.PracticeLog.Add(Object);
                     DB.SaveChanges();
                     ReturnMess = "1";
                 }
                 else
                 {
-                    var Existing = DB.MasterTask.Where(o => o.Id.Equals(Object.Id)).FirstOrDefault();
-                    Existing.StudentId = Object.StudentId;
-                    Existing.TutorId = Object.TutorId;
-                    //Existing.StatusId = Object.StatusId;
-                    Existing.Type = Object.Type;
-                    Existing.Name = Object.Name;
+                    Existing.PracticeHours = Object.PracticeHours;
+                    Existing.Song = Object.Song;
+                    Existing.InstrumentID = Object.InstrumentID;
                     Existing.Description = Object.Description;
-                    Existing.DateEnd = Object.DateEnd;
                     Existing.ModifiedBy = Username;
                     Existing.ModifiedDate = UpdateTrail;
                     ReturnMess = DB.SaveChanges().ToString();
@@ -52,20 +48,12 @@ namespace CadenzApp.BusinessLogic
             }
         }
 
-        public List<MasterTask> GetTask(int StudentID, int? TaskID)
+        public List<PracticeLog> GetPracticeLog(int StudentID)
         {
             try
             {
-                if (TaskID == null)
-                {
-                    var data = DB.MasterTask.Where(o => o.StudentId.Equals(StudentID) && o.IsActive.Equals(true)).ToList();
-                    return data;
-                }
-                else
-                {
-                    var data = DB.MasterTask.Where(o => o.StudentId.Equals(StudentID) && o.Id.Equals(TaskID)).ToList();
-                    return data;
-                }
+                var data = DB.PracticeLog.Where(o => o.StudentId.Equals(StudentID)).ToList();
+                return data;
             }
             catch (Exception ex)
             {
@@ -73,20 +61,14 @@ namespace CadenzApp.BusinessLogic
             }
         }
 
-        public string DeleteTask(int ID)
+        public string DeletePracticeLog(int StudentID, DateTime Date)
         {
             var UpdateTrail = System.DateTime.Now;
 
             try
             {
                 var returnMess = string.Empty;
-                var entry = DB.MasterTask.Where(o => o.Id.Equals(ID)).FirstOrDefault();
-                if (entry.IsActive == true)
-                    entry.IsActive = false;
-                else
-                    entry.IsActive = true;
-                entry.ModifiedBy = Username;
-                entry.ModifiedDate = UpdateTrail;
+                DB.PracticeLog.Remove(DB.PracticeLog.Where(o => o.StudentId.Equals(StudentID) && o.Date.Equals(Date)).FirstOrDefault());
                 returnMess = DB.SaveChanges().ToString();
                 return returnMess;
             }

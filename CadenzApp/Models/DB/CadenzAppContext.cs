@@ -148,7 +148,7 @@ namespace CadenzApp.Models.DB
 
                 entity.Property(e => e.PracticeHours).HasColumnType("numeric(4, 2)");
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("date");
+                entity.Property(e => e.ModifiedDate).HasColumnType("date");
             });
 
             OnModelCreatingPartial(modelBuilder);
