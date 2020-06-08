@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace CadenzApp.Controllers
 {
-    public class StudentsController : Controller
+    public class StudentsController : BaseViewController
     {
         protected readonly StudentsBusinessLogic BsLogic = new StudentsBusinessLogic();
         protected readonly TasksBusinessLogic TaskBsLogic = new TasksBusinessLogic();

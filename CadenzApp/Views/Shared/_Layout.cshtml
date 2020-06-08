@@ -1,12 +1,19 @@
-﻿@{ 
+﻿@using Microsoft.AspNetCore.Http
+@{
     var controllerName = ViewContext.RouteData.Values["Controller"];
     var baseUrl = Url.Action("", "", null, this.Context.Request.Scheme);
-    var username = "Username";
+    var user = User.Identity;
+    var username = Context.Session.GetString("Username") ?? "Username";
+    var email = Context.Session.GetString("Email") ?? "user@email.com";
+    var picture = Context.Session.GetString("Picture") ?? "placeholder.png";
+    var role = Context.Session.GetString("Role") ?? "Tutor";
+
     ViewBag.baseUrl = baseUrl;
     ViewBag.controller = controllerName;
     ViewBag.username = username;
-    //ViewBag.Language = Session["Language"] ?? "id";
-    //ViewBag.Flag = Session["Flag"] ?? "flag-icon-id";
+    ViewBag.email = email;
+    ViewBag.picture = "/images/photos/" + picture;
+    ViewBag.role = role;
     //ViewBag.SidenavLock = Session["SidenavLock"] ?? true;
 }
 <!DOCTYPE html>

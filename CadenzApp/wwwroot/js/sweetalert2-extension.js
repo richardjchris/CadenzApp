@@ -1,4 +1,4 @@
-﻿async function confirm(title, message, icon) {
+﻿async function confirmDanger(title, message, icon) {
     return swal({
         title: title,
         text: message,
@@ -6,8 +6,21 @@
         type: 'warning',
         buttons: [
             "Cancel",
-            "Close"
+            "Delete"
         ],
         dangerMode: true
+    });
+}
+
+async function confirmNormal(title, message, icon) {
+    return swal({
+        title: title,
+        text: message,
+        icon: icon,
+        type: 'warning',
+        buttons: [
+            "Cancel",
+            "Confirm"
+        ]
     });
 }

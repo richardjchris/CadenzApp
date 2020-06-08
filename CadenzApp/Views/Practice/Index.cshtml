@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Practice Log";
+    ViewBag.Title = "Practice Log";
 }
 
 @section Styles {
@@ -11,9 +11,10 @@
         <div class="col s12 m7 l8">
             <div class="card">
                 <div class="card-content">
-                    <h4 class="card-title text-center">Practice Log</h4>
+                    <h4 class="card-title center">Practice Log</h4>
+                    <div class="divider mb-2"></div>
                     <div id="table-wrapper" class="display-none">
-                        <table id="table">
+                        <table id="table" class="display">
                             <thead>
                                 <tr>
                                     <th>Date</th>

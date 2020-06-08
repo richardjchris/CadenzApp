@@ -55,7 +55,7 @@ function PopulateTask() {
 $(document).on('click', ".deleteBtn", function () {
     var taskID = $(this).parent().parent().attr('data-value');
     var confirmation = $.Deferred();
-    confirmation.resolve(confirm("Delete task?", "This action cannot be undone.", "warning"));
+    confirmation.resolve(confirmDanger("Delete task?", "This action cannot be undone.", "warning"));
 
     $.when(confirmation).then(function(confirmStatus) {
         if (confirmStatus) {

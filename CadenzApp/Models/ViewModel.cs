@@ -11,4 +11,12 @@ namespace CadenzApp.Models
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+    public class UserModel
+    {
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
+        public string Picture { get; set; }
+    }
 }

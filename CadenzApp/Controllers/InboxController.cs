@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CadenzApp.Controllers
 {
-    public class InboxController : Controller
+    public class InboxController : BaseViewController
     {
         public IActionResult Index()
         {

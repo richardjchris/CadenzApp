@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CadenzApp.Controllers
 {
-    public class ResourcesController : Controller
+    public class ResourcesController : BaseViewController
     {
         // GET: /<controller>/
         public IActionResult Index()

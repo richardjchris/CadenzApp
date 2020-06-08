@@ -30,8 +30,8 @@ namespace CadenzApp.Models.DB
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer("Server=localhost;Database=CadenzApp;Trusted_Connection=True;user id=sa;password=P@ssw0rd;");
-                optionsBuilder.UseSqlServer("Server=cadenzapp.database.windows.net;Database=CadenzAppDB;Trusted_Connection=False;Encrypt=True;user id=cadenzapp;password=P@ssw0rd;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=CadenzApp;Trusted_Connection=True;user id=sa;password=P@ssw0rd;");
+                //optionsBuilder.UseSqlServer("Server=cadenzapp.database.windows.net;Database=CadenzAppDB;Trusted_Connection=False;Encrypt=True;user id=cadenzapp;password=P@ssw0rd;");
             }
         }
 

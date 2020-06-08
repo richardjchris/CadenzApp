@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace CadenzApp.Controllers
 {
-    public class PracticeController : Controller
+    public class PracticeController : BaseViewController
     {
         protected readonly PracticeBusinessLogic BsLogic = new PracticeBusinessLogic();
         protected readonly ComboboxBusinessLogic CmbBsLogic = new ComboboxBusinessLogic();

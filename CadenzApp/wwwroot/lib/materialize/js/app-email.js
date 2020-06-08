@@ -5,15 +5,6 @@ $(document).ready(function () {
    if ($(window).width() > 900) {
       $("#email-sidenav").removeClass("sidenav");
    }
-   // email Quill Editor
-   // -------------------
-   var composeMailEditor = new Quill(".snow-container .compose-editor", {
-      modules: {
-         toolbar: ".compose-quill-toolbar"
-      },
-      placeholder: "Write a Message... ",
-      theme: "snow"
-   });
 
    // Toggle class of sidenav
    $("#email-sidenav").sidenav({
@@ -115,30 +106,6 @@ $(document).ready(function () {
          $(".email-collection .email-brief-info").show();
       }
    });
-
-   // email-overlay and sidebar hide
-   // --------------------------------------------
-   $(".compose-email-trigger").on("click", function () {
-      $(".email-overlay").addClass("show");
-      $(".email-compose-sidebar").addClass("show");
-
-   })
-   $(
-      ".email-compose-sidebar .cancel-email-item, .email-compose-sidebar .close-icon, .email-compose-sidebar .send-email-item, .email-overlay"
-   ).on("click", function () {
-      $(".email-overlay").removeClass("show");
-      $(".email-compose-sidebar").removeClass("show");
-      $("input").val("");
-      $(".compose-editor .ql-editor p").html("");
-      $("#edit-item-from").val("user@example.com");
-   });
-
-   if ($(".email-compose-sidebar").length > 0) {
-      var ps_sidebar_compose = new PerfectScrollbar(".email-compose-sidebar", {
-         theme: "dark",
-         wheelPropagation: false
-      });
-   }
 
    // for rtl
    if ($("html[data-textdirection='rtl']").length > 0) {

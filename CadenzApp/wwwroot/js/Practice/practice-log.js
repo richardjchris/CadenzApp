@@ -21,11 +21,18 @@ function GetInstrumentOptions() {
             });
             $(".select2").select2();
         }
-    }).then(PopulatePracticeLog());
+    });//.then(PopulatePracticeLog());
 }
 
 function GetInstrumentName(instrumentID) {
-    instrumentList;
+    var name = "";
+    $.each(instrumentList, function (index, object) {
+        if (object.id == instrumentID) {
+            name = object.name;
+            return;
+        }
+    });
+    return name;
 }
 
 function PopulatePracticeLog() {
@@ -38,31 +45,30 @@ function PopulatePracticeLog() {
         success: function (data) {
             var tbody = $("#table tbody").empty();
             $.each(data, function (index, object) {
-                var date = moment(object.Date).format("YYYY-MM-DD");
+                var date = moment(object.date).format("YYYY-MM-DD");
                 var td = "<tr>";
                 td += "<td>" + date + "</td>";
-                td += "<td>" + object.PracticeHours + "</td>";
-                td += "<td>" +  +"</td>";
-                td += "<td>" + object.Song + "</td>";
-                td += "<td>" + object.Description + "</td>";
+                td += "<td>" + object.practiceHours + "</td>";
+                td += "<td>" + GetInstrumentName(object.instrumentId) + "</td>";
+                td += "<td>" + object.song + "</td>";
+                td += "<td>" + object.description + "</td>";
                 td += "</tr>"
+                tbody.append(td);
             });
-            $("#table").dataTable();
             $("#table-wrapper").removeClass("display-none");
-            /*if (!result.length) {
-                $("#task-list").addClass('display-none');
-                $(".tasks.placeholder-text").removeClass('display-none');
-            }
-            else {
-                $("#task-list").removeClass('display-none');
-                $(".tasks.placeholder-text").addClass('display-none');
-                $.each(result, function (index, object) {
-                    var parsedDate = (!object.dateEnd ? "No date" : moment(object.dateEnd).format("D MMM"));
-                    var type, colour = "";
-
-                    $("#task-list").append(li);
-                });
-            }*/
+            $("#table").dataTable({
+                "dom": "ti",
+                "columnDefs": [
+                    {
+                        "targets": "_all",
+                        "className": "dt-center"
+                    }
+                ],
+                "data": null,
+                "scrollY": 500,
+                "scrollCollapse": true,
+                "paging": false
+            });
         }
     });
 }
@@ -70,7 +76,7 @@ function PopulatePracticeLog() {
 /*#region Event Handler*/
 $(document).on('click', ".addBtn", function () {
     var confirmation = $.Deferred();
-    confirmation.resolve(confirm("Add practice session?", "This action cannot be undone.", "warning"));
+    confirmation.resolve(confirmNormal("Add practice session?", "This action cannot be undone.", "warning"));
 
     $.when(confirmation).then(function (confirmStatus) {
         if (confirmStatus) {
@@ -154,13 +160,6 @@ function FormCheck() {
         return null;
     }
     else if (!detail["PracticeHours"] == null) {
-        //$.when(FadeOutPreloaderModal()).then(function () {
-        //    swal({
-        //        icon: "error",
-        //        title: "Invalid name",
-        //        text: "Please enter a valid name."
-        //    });
-        //});
         return null;
     }
     else {
@@ -169,7 +168,7 @@ function FormCheck() {
     }
 }
 
-function CheckDate(date, studentID) {
+/*function CheckDate(date, studentID) {
     var isExist = false;
     $.ajax({
         url: baseUrl + controller + "/CheckDate",
@@ -182,5 +181,5 @@ function CheckDate(date, studentID) {
         }
     });
     return isExist;
-}
+}*/
 //#endregion

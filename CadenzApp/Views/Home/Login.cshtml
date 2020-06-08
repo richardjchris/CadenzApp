@@ -11,46 +11,72 @@
     <link rel="stylesheet" type="text/css" href="~/css/login.css">
 </head>
 <body class="vertical-layout page-header-light vertical-menu-collapsible vertical-dark-menu preload-transitions 1-column +blank-page blank-page" data-open="click" data-menu="vertical-dark-menu" data-col="1-column">
-          <div class="row">
-                <div class="col s12">
-                    <div class="container">
-                        <div id="login-page" class="row">
-                            <div class="col s12 m11 l10 z-depth-4 card card-panel horizontal border-radius-6 login-card bg-opacity-8">
-                                <div class="card-stacked">
-                                    <form class="login-form" id="account" action="@Url.Action("/Login")" method="post">
-                                        @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <h5 class="ml-4">Sign in</h5>
-                                                @if (!string.IsNullOrWhiteSpace(ErrMessage))
-                                                {
-                                                    <div class="card-alert card red lighten-1">
-                                                        <div class="card-content white-text">
-                                                            <p>Error! @ErrMessage</p>
-                                                        </div>
-                                                        <button type="button" class="close cyan-text" data-dismiss="alert" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                    </div>
-                                                }
+    <div class="row">
+        <div class="col s12">
+            <div class="container">
+                <div id="login-page" class="row">
+                    <div class="col s12 m11 l10 z-depth-4 card card-panel horizontal border-radius-6 login-card bg-opacity-8">
+                        <div class="card-stacked">
+                            <form class="login-form" id="account" asp-controller="Home" asp-action="Login" method="post">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <h5 class="ml-4">Sign in</h5>
+                                    </div>
+                                </div>
+                                <div id="Type" class="input-field radio col s12">
+                                    <span>Account type:</span>
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <p>
+                                                <label>
+                                                    <input name="Type" type="radio" class="with-gap" for="Type" value="T" checked />
+                                                    <span>Tutor</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                        <div class="col s6">
+                                            <p>
+                                                <label>
+                                                    <input name="Type" type="radio" class="with-gap" for="Type" value="S" />
+                                                    <span>Student</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if (!string.IsNullOrWhiteSpace(ErrMessage))
+                                {
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="card-alert card red lighten-1">
+                                                <div class="card-content white-text">
+                                                    <p>Error! @ErrMessage</p>
+                                                </div>
+                                                <button type="button" class="close cyan-text" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="row margin">
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix pt-2">person_outline</i>
-                                                <input id="Email" name="Email" type="text">
-                                                <label for="Email" class="center-align">Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="row margin">
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix pt-2">lock_outline</i>
-                                                <input id="Password" name="Password" type="password">
-                                                <label for="Password">Password</label>
-                                            </div>
-                                        </div>
-                                        @*<div class="row">
+                                    </div>
+                                }
+
+                                <div class="row margin">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix pt-2">person_outline</i>
+                                        <input id="Email" name="Email" type="text">
+                                        <label for="Email" class="center-align">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row margin">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix pt-2">lock_outline</i>
+                                        <input id="Password" name="Password" type="password">
+                                        <label for="Password">Password</label>
+                                    </div>
+                                </div>
+                                @*<div class="row">
             <div class="col s12 m12 l12 ml-2 mt-1">
                 <p>
                     <label>
@@ -60,37 +86,21 @@
                 </p>
             </div>
         </div>*@
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                @*<button class="btn waves-effect waves-light border-round blue darken-2 col s12" type="submit">Login</button>*@
-                                                <a class="btn waves-effect waves-light border-round pink darken-1 col s12" asp-controller="Home" asp-action="Index">Login</a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            @*<div class="input-field col s6 m6 l6">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        @*<button class="btn waves-effect waves-light border-round blue darken-2 col s12" type="submit">Login</button>*@
+                                        <button class="btn waves-effect waves-light border-round pink darken-1 col s12" type="submit">Login</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @*<div class="input-field col s6 m6 l6">
                     <p class="margin medium-small"><a href="user-register.html">Register Now!</a></p>
                 </div>
             <div class="input-field col offset-s6 s6">
                 <p class="margin right-align medium-small"><a href="user-forgot-password.html">Forgot password ?</a></p>
             </div>*@
-                                        </div>
-                                        <!--Radio Buttons for Login Page-->
-                                        <form action="#">
-                                            <p style="color:white">
-                                                <label>
-                                                    <input name="group1" type="radio" checked />
-                                                    <span>Teacher</span>
-                                                </label>
-                                            </p>
-                                            <p style="color:white">
-                                                <label>
-                                                    <input name="group1" type="radio" />
-                                                    <span>Student</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                        </form>
-                                    </form>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-image">
                             <img src="~/images/login_bg.png" />
@@ -107,14 +117,9 @@
         var returnUrl = "@ViewBag.ReturnUrl";
     </script>
     <script type="text/javascript" src="~/lib/materialize/js/vendors.min.js"></script>
-    <script src="/app-assets/js/scripts/ui-alerts.js"></script>
+    <script type="text/javascript" src="~/lib/materialize/js/ui-alerts.js"></script>
 
     <script type="text/javascript" src="~/lib/materialize/js/plugins.js"></script>
-    <script>
-        var wrong = "@ViewBag.Error";
-        if (wrong == "Error") {
-            $("#wrong-identity").removeClass("display-none");
-        }
-    </script>
+   
 </body>
 </html>
