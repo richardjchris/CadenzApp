@@ -23,6 +23,15 @@
     color: #DF617F;
 }
 
+.active.collection-item {
+    background-color: #DF617F!important;
+    color: #fff;
+}
+
+.active.collection-item a {
+    color: inherit;
+}
+
 button.btn.app-accent:focus {
     background-color: #DF617F;
 }
@@ -127,7 +136,9 @@ textarea {
 }
 /*#endregion*/
 
-
+.collection-item.avatar {
+    min-height: unset !important;
+}
 /*collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) .circle {
     position: absolute;
     left: 15px;

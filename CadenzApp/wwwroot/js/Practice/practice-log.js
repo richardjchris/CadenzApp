@@ -1,11 +1,26 @@
 ﻿$(document).ready(function () {
+    //GetPracticeHours();
     GetInstrumentOptions();
-    PopulatePracticeLog();
+    //PopulatePracticeLog();
 });
 
 function GetStudentID() {
     return 1;
 }
+
+/*function GetPracticeHours() {
+    var studentID = GetStudentID();
+    var currDate = moment().format("YYYY-MM-DD");
+    $.ajax({
+        url: baseUrl + controller + "/GetPracticeHours",
+        type: "GET",
+        cache: false,
+        data: { StudentID: studentID, Date: currDate },
+        success: function (data) {
+            console.log(data);
+        }
+    });//.then(PopulatePracticeLog());
+}*/
 
 function GetInstrumentOptions() {
     $.ajax({
@@ -21,7 +36,7 @@ function GetInstrumentOptions() {
             });
             $(".select2").select2();
         }
-    });//.then(PopulatePracticeLog());
+    }).then(PopulatePracticeLog());
 }
 
 function GetInstrumentName(instrumentID) {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CadenzApp.Helper;
 using CadenzApp.Models.DB;
+using Microsoft.EntityFrameworkCore;
 
 namespace CadenzApp.BusinessLogic
 {

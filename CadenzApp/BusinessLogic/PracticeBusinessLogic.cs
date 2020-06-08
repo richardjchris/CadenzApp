@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CadenzApp.Helper;
 using CadenzApp.Models.DB;
+using Microsoft.EntityFrameworkCore;
 
 namespace CadenzApp.BusinessLogic
 {
@@ -60,6 +61,13 @@ namespace CadenzApp.BusinessLogic
                 throw new Exception("Error : " + ex.Message);
             }
         }
+
+        /*public IQueryable<Hours> GetPracticeHours(DateTime Date, int StudentID)
+        {
+            var query = "SELECT * FROM GetTotalPracticeHours(" + Date + ", + " + StudentID + ");";
+            var Hours = DB.Hours.FromSqlRaw(query);
+            return Hours;
+        }*/
 
         public string DeletePracticeLog(int StudentID, DateTime Date)
         {

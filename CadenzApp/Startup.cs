@@ -72,8 +72,10 @@ namespace CadenzApp
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
+
             app.UseStaticFiles();
 
             app.UseRouting();

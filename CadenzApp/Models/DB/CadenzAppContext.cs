@@ -4,8 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CadenzApp.Models.DB
 {
+    public class Hours
+    {
+        public int? Hour { get; set; }
+    }
+
     public partial class CadenzAppContext : DbContext
     {
+
         public CadenzAppContext()
         {
         }
@@ -14,7 +20,7 @@ namespace CadenzApp.Models.DB
             : base(options)
         {
         }
-
+        public DbSet<Hours> Hours { get; set; }
         public virtual DbSet<MasterFile> MasterFile { get; set; }
         public virtual DbSet<MasterInstruments> MasterInstruments { get; set; }
         public virtual DbSet<MasterStudent> MasterStudent { get; set; }
@@ -37,6 +43,8 @@ namespace CadenzApp.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Hours>().HasNoKey();
+
             modelBuilder.Entity<MasterFile>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");

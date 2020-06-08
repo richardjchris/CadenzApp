@@ -37,6 +37,11 @@ namespace CadenzApp.Controllers
             return Json(BsLogic.GetPracticeLog(ID));
         }
 
+        /*public JsonResult GetPracticeHours(int StudentID, DateTime Date)
+        {
+            return Json(BsLogic.GetPracticeHours(Date, StudentID));
+        }*/
+
         public JsonResult DeletePracticeLog(int StudentID, DateTime Date)
         {
             return Json(BsLogic.DeletePracticeLog(StudentID, Date));
