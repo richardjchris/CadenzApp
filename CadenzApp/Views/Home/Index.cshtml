@@ -1,133 +1,64 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
 @{
     ViewBag.Title = "Dashboard";
 }
-<head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        .column {
-            float: left;
-            width: 55%;
-            padding: 10px;
-        }
-
-        .column2 {
-            float: left;
-            width: 45%;
-            padding: 10px;
-        }
-
-        .column3 {
-            float: right;
-            width: 45%;
-            padding: 10px;
-        }
-    </style>
-</head>
-
 <div>
     <div class="row">
-        <!--Calendar Card-->
-        <div class="column s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="@Url.Content("~/images/calendar.png")">
-                </div>
-            </div>
-        </div>
-        <!--Practice Hours Card-->
-        <div class="column3 s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="@Url.Content("~/images/hours2.png")">
-                </div>
-            </div>
-        </div>
-
-        <!--Homework Tasks Collection-->
-        <div class="column s12 m4" style="padding-top: inherit">
-            <ul class="collection with-header">
-
-                <li class="collection-header"><h4>Daily Tasks<a href="#!" class="secondary-content"><i class="medium material-icons">add_circle</i></a></h4></li><!--Add new task-->
-                <li class="collection-item avatar">
-                    <img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="" class="circle">
-                    <span class="title"><b>Homework Task</b></span>
-                    <p>
-                        Calvin Steward<br>
-                        Due Date: <b>Monday 13th April</b><br>
-                    </p>
-                    <a href="#!"><i class="material-icons">edit</i></a>
-                    <a href="#!"><i class="material-icons">delete</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="@Url.Content("~/images/photos/anne.png")" alt="" class="circle">
-                    <span class="title"><b>Tutorial Lesson</b></span>
-                    <p>
-                        Anne Campbell<br>
-                        Date: <b>Monday 13th April, 2:00pm</b><br>
-                    </p>
-                    <a href="#!"><i class="material-icons">edit</i></a><!--edit task-->
-                    <a href="#!"><i class="material-icons">delete</i></a><!--delete task-->
-                </li>
-            </ul>
-        </div>
-        <!--Recent Uploads Card-->
-        <div class="column3 s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="@Url.Content("~/images/uploads.png")">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Notifications Card-->
-<div>
-    <div class="row">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title" style="padding: 5px 16px">
-                        <h6 class="">
-                            Notifications
-                        </h6>
-                        <p class="medium-small mt-2 mb-1">Here are the new notifications since you last logged in:</p>
-                        <div class="divider mt-2"></div>
+        <div class="col s12 m6 l7">
+            <!--Calendar Card-->
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="@Url.Content("~/images/calendar.png")">
                     </div>
                 </div>
-                <div class="card-content">
+            </div>
+            <!--Homework Tasks Collection-->
+            <div class="col s12">
+                <ul class="collection with-header">
 
-                    <ul class="collection">
-                        <li class="collection-item avatar">
-                            <a href="#" class="clickable-list">
-                                <img src="@Url.Content("~/images/Portrait_Placeholder.png")" class="circle">
-                                <span class="title">Anne Campbell</span>
-                                <p>Lorem</p>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <a href="#" class="clickable-list">
-                                <img src="@Url.Content("~/images/Portrait_Placeholder.png")" class="circle">
-                                <span class="title">Peter Evans</span>
-                                <p>Lorem</p>
-                            </a>
-                        </li>
-                        <li class="collection-item avatar">
-                            <a href="#" class="clickable-list">
-                                <img src="@Url.Content("~/images/Portrait_Placeholder.png")" class="circle">
-                                <span class="title">Sarah Brown</span>
-                                <p>Lorem</p>
-                            </a>
-                        </li>
-                    </ul>
+                    <li class="collection-header"><h4>Daily Tasks<a href="#!" class="secondary-content"><i class="medium material-icons">add_circle</i></a></h4></li><!--Add new task-->
+                    <li class="collection-item avatar">
+                        <img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="" class="circle">
+                        <span class="title"><b>Homework Task</b></span>
+                        <p>
+                            Calvin Steward<br>
+                            Due Date: <b>Monday 13th April</b><br>
+                        </p>
+                        <a href="#!"><i class="material-icons">edit</i></a>
+                        <a href="#!"><i class="material-icons">delete</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <img src="@Url.Content("~/images/photos/anne.png")" alt="" class="circle">
+                        <span class="title"><b>Tutorial Lesson</b></span>
+                        <p>
+                            Anne Campbell<br>
+                            Date: <b>Monday 13th April, 2:00pm</b><br>
+                        </p>
+                        <a href="#!"><i class="material-icons">edit</i></a><!--edit task-->
+                        <a href="#!"><i class="material-icons">delete</i></a><!--delete task-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col s12 m6 l5">
+            <!--Practice Hours Card-->
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="@Url.Content("~/images/hours2.png")">
+                    </div>
+                </div>
+            </div>
+            
+            <!--Recent Uploads Card-->
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="@Url.Content("~/images/uploads.png")">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col s12 m8 l8 animate fadeRight">
-        </div>
-
     </div>
 </div>
-</html>

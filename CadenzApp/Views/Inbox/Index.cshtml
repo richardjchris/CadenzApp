@@ -19,12 +19,12 @@
                     <h5 class="m-0 sidebar-title"><i class="material-icons app-header-icon text-top">mail_outline</i> Mailbox</h5>
                     <div class="row valign-wrapper mt-10 pt-2 animate fadeLeft">
                         <div class="col s3 media-image">
-                            <img src="@ViewBag.picture" alt="" class="circle z-depth-2 responsive-img">
+                            <img src="~/images/photos/placeholder.png" alt="" class="avatar-placeholder circle z-depth-2 responsive-img">
                             <!-- notice the "circle" class -->
                         </div>
                         <div class="col s9">
-                            <p class="m-0 subtitle font-weight-700">asd</p>
-                            <p class="m-0 text-muted">@ViewBag.email</p>
+                            <p class="m-0 subtitle font-weight-700 username-placeholder">Username</p>
+                            <p class="m-0 text-muted email-placeholder">usernmae@email.com</p>
                         </div>
                     </div>
                 </div>
@@ -195,6 +195,13 @@
 <div class="content-overlay"></div>
 
 @section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.avatar-placeholder').attr("src", picture);
+            $('.username-placeholder').text(username);
+            $('.email-placeholder').text(email);
+        });
+    </script>
     <script type="text/javascript" src="~/lib/materialize/js/app-email.js"></script>
     <script type="text/javascript" src="~/lib/materialize/js/app-email-content.js"></script>
     <script type="text/javascript" src="~/lib/materialize/js/search.js"></script>

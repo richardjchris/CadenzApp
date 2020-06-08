@@ -50,9 +50,12 @@
     </footer>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     @*<script type="text/javascript" src="~/lib/materialize/js/materialize.js"></script>*@
-    <script>
+<script>
         var baseUrl = "@ViewBag.baseUrl";
         var controller = "@ViewBag.Controller";
+        var username = "@ViewBag.username";
+        var email = "@ViewBag.email";
+        var picture = "@ViewBag.picture";
         //Opens sidenav collapsibles on page init, has to be done before plugins.js
         $("document").ready(function () {
             var lang = "@ViewBag.Language";
@@ -70,7 +73,7 @@
             $('.scrollspy').scrollSpy();
         });
 
-    </script>
+</script>
     <script type="text/javascript" src="~/lib/materialize/js/vendors.min.js"></script>
     <script type="text/javascript" src="~/lib/materialize/js/plugins.js"></script>
     <script type="text/javascript" src="~/lib/moment.min.js"></script>
