@@ -23,8 +23,8 @@
     color: #DF617F;
 }
 
-.active.collection-item {
-    background-color: #DF617F!important;
+#studentsList .active.collection-item {
+    background-color: #DF617F !important;
     color: #fff;
 }
 
@@ -136,7 +136,7 @@ textarea {
 }
 /*#endregion*/
 
-.collection-item.avatar {
+#studentsList .collection-item.avatar {
     min-height: unset !important;
 }
 /*collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) .circle {
