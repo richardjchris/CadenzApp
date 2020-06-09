@@ -80,6 +80,7 @@ function PopulatePracticeLog() {
                     }
                 ],
                 "data": null,
+                "responsive": true,
                 "scrollY": 500,
                 "scrollCollapse": true,
                 "paging": false
