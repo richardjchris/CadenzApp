@@ -10,7 +10,7 @@ function PopulateTask() {
     $.ajax({
         url: baseUrl + controller + "/GetTaskList",
         type: "GET",
-        data: "StudentID=" + studentID,
+        data: { StudentID: studentID },
         cache: false,
         success: function (result) {
             $("#task-list").empty();
