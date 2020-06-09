@@ -199,30 +199,9 @@ function FormCheck() {
 }*/
 
 //Toggle display of practice hours
-function toggle() {
-    hideTable();
-    showChart();
-}
 
-function hideTable() {
-    var x = document.getElementById("tableDisplay");
-    
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function showChart() {
-    var y = document.getElementById("pracHours")
-
-    if (y.style.display === "block") {
-        y.style.display = "none";
-    } else {
-        y.style.display = "block";
-    }
-
-}
+$(".toggleBtn").click(function () {
+    $("#chart-container, #table-container").toggleClass("display-none"); 
+});
 
 //#endregion

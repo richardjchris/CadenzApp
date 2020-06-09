@@ -6,22 +6,20 @@
     <link rel="stylesheet" href="~/lib/materialize/vendors/select2/select2-materialize.css" />
 }
 
-<button class="waves-effect waves-light btn" onclick="toggle()">Toggle Display</button>
 <div>    
     <div class="row">
-        <div id="pracHours">
-            <div style="float: left">
-                <div class="card">
-                    <img src="@Url.Content("~/images/practiceHours2.png")">
-                </div>
-            </div>
-        </div>
-        <div id="tableDisplay">
-            <div class="col s12 m7 l8">
-                <div class="card">
-                    <div class="card-content">
-                        <h4 class="card-title center">Practice Log</h4>
-                        <div class="divider mb-2"></div>
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-content">
+                    <h4 class="card-title">Practice Hours 
+                        <button class="toggleBtn waves-effect waves-light app-accent btn right">Toggle Display</button>
+                    </h4>
+                    <div class="divider mt-2 mb-2 col s12"></div>
+
+                    <div id="chart-container" class="card-image display-none">
+                        <img src="@Url.Content("~/images/practiceHours2.png")">
+                    </div>
+                    <div id="table-container">
                         <div id="table-wrapper" class="display-none">
                             <table id="table" class="display">
                                 <thead>
@@ -40,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m5 l4" style="float: right">
+        <div class="col s12 m5" style="float: right">
             <div class="card">
                 <div class="card-content">
                     <h4 class="card-title">Add Practice Session</h4>
