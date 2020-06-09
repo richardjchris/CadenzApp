@@ -20,11 +20,13 @@
                             <form class="login-form" id="account" asp-controller="Home" asp-action="Login" method="post">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <h5 class="ml-4">Sign in</h5>
+                                    <div class="input-field col s12 m10 push-m1">
+                                        <h5 class="center">Sign in</h5>
+
+                                        <div class="divider col s12 mt-2 mb-2" style="background-color: rgb(158, 158, 158);"></div>
                                     </div>
                                 </div>
-                                <div id="Type" class="input-field radio col s12">
+                                <div id="Type" class="input-field radio col s12 m10 push-m1">
                                     <span>Account type:</span>
                                     <div class="row">
                                         <div class="col s6">
@@ -63,47 +65,47 @@
                                 }
 
                                 <div class="row margin">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s12 m10 push-m1">
                                         <i class="material-icons prefix pt-2">person_outline</i>
                                         <input id="Email" name="Email" type="text">
                                         <label for="Email" class="center-align">Email</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s12 m10 push-m1">
                                         <i class="material-icons prefix pt-2">lock_outline</i>
                                         <input id="Password" name="Password" type="password">
                                         <label for="Password">Password</label>
                                     </div>
                                 </div>
                                 @*<div class="row">
-            <div class="col s12 m12 l12 ml-2 mt-1">
-                <p>
-                    <label>
-                        <input type="checkbox" />
-                        <span>Remember Me</span>
-                    </label>
-                </p>
-            </div>
-        </div>*@
+                                        <div class="col s12 m12 l12 ml-2 mt-1">
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <span>Remember Me</span>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>*@
                                 <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s10 push-s1 m8 push-m2 l6 push-l3">
                                         @*<button class="btn waves-effect waves-light border-round blue darken-2 col s12" type="submit">Login</button>*@
                                         <button class="btn waves-effect waves-light border-round pink darken-1 col s12" type="submit">Login</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     @*<div class="input-field col s6 m6 l6">
-                    <p class="margin medium-small"><a href="user-register.html">Register Now!</a></p>
-                </div>
-            <div class="input-field col offset-s6 s6">
-                <p class="margin right-align medium-small"><a href="user-forgot-password.html">Forgot password ?</a></p>
-            </div>*@
+                                                <p class="margin medium-small"><a href="user-register.html">Register Now!</a></p>
+                                            </div>
+                                        <div class="input-field col offset-s6 s6">
+                                            <p class="margin right-align medium-small"><a href="user-forgot-password.html">Forgot password ?</a></p>
+                                        </div>*@
                                 </div>
                             </form>
                         </div>
                         <div class="card-image">
-                            <img src="~/images/login_bg.png" />
+                            <img src="~/images/login_bg.png" style="height: 100%" />
                         </div>
                     </div>
                 </div>
@@ -118,8 +120,7 @@
     </script>
     <script type="text/javascript" src="~/lib/materialize/js/vendors.min.js"></script>
     <script type="text/javascript" src="~/lib/materialize/js/ui-alerts.js"></script>
-
     <script type="text/javascript" src="~/lib/materialize/js/plugins.js"></script>
-   
+    <script type="text/javascript" src="~/js/Home/login.js"></script>
 </body>
 </html>
