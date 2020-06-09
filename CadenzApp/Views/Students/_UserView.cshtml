@@ -4,33 +4,42 @@
             <div class="col s12 m7">
                 <div class="display-flex media">
                     <a href="#" class="avatar">
-                        @*<img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">*@
                         <img src="@Url.Content("~/images/photos/anne.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">
                     </a>
                     <div class="media-body">
                         <h6 class="media-heading">
-                            @*<span class="name-field">Student Name</span>*@
                             <span class="name-field">Anne Campbell</span>
-                            @*<span class="grey-text">@@</span>
-                            <span class="email-field grey-text">Email</span>*@
                         </h6>
-                        @*<span class="text-app-accent">Instrument Name</span>*@
                         <span class="text-app-accent">Guitarist</span>
                         <br />
-                        @*<span>
-                            <span class="year-of-study-field">Year X,</span>
-                            <span class="empty-space"> </span>
-                            <span class="place-of-occupation-field">Place of Occupation</span>
-                        </span>*@
                         <span>
                             <span class="year-of-study-field">Year 12,</span>
                             <span class="empty-space"> </span>
                             <span class="place-of-occupation-field">Baulkham Hills High School</span>
                         </span>
-                        @*<span>ID:</span>
-                            <span class="users-view-id">300</span>*@
                     </div>
                 </div>
+                @*<div class="display-flex media">
+                    <a href="#" class="avatar">
+                        <img src="@Url.Content("~/images/Portrait_Placeholder.png")" alt="avatar" class="z-depth-1 circle" height="64" width="64">
+                    </a>
+                    <div class="media-body">
+                        <h6 class="media-heading">
+                            <span class="name-field">Student Name</span>
+                            <span class="grey-text">@@</span>
+                            <span class="email-field grey-text">Email</span>
+                        </h6>
+                        <span class="text-app-accent">Instrument Name</span>
+                        <br />
+                        <span>
+                            <span class="year-of-study-field">Year X,</span>
+                            <span class="empty-space"> </span>
+                            <span class="place-of-occupation-field">Place of Occupation</span>
+                        </span>
+                        <span>ID:</span>
+                            <span class="users-view-id">300</span>
+                    </div>
+                </div>*@
             </div>
             <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                 <a class="callBtn btn-floating btn-flat waves-effect waves-light light-green"><i class="material-icons">call</i></a>
@@ -80,7 +89,8 @@
         </div>*@
             <!--#endregion-->
             <div class="col s12">
-                <div class="card">
+                <partial name="_PracticeHours" />
+                @*<div class="card">
                     <div class="card-content">
                         <h6 class="bold-text mb-2">Practice Log</h6>
 
@@ -96,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div class="col s12 m6">
                 <div class="card">

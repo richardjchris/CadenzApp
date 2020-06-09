@@ -17,6 +17,8 @@ namespace CadenzApp.Controllers
     {
         protected readonly StudentsBusinessLogic BsLogic = new StudentsBusinessLogic();
         protected readonly TasksBusinessLogic TaskBsLogic = new TasksBusinessLogic();
+        protected readonly PracticeBusinessLogic PracticeBsLogic = new PracticeBusinessLogic();
+        protected readonly ComboboxBusinessLogic CmbBsLogic = new ComboboxBusinessLogic();
 
         // GET: /<controller>/
         public IActionResult Index()
@@ -65,6 +67,18 @@ namespace CadenzApp.Controllers
         public JsonResult DeleteTask(int ID)
         {
             return Json(TaskBsLogic.DeleteTask(ID));
+        }
+        #endregion
+
+        #region Practice Hours
+        public JsonResult GetPracticeHours(int StudentID)
+        {
+            return Json(PracticeBsLogic.GetPracticeLog(StudentID));
+        }
+
+        public JsonResult GetInstrumentInfo()
+        {
+            return Json(CmbBsLogic.GetInstrumentsOption());
         }
         #endregion
     }

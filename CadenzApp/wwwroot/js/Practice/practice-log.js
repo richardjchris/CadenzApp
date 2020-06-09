@@ -29,14 +29,16 @@ function GetInstrumentOptions() {
         cache: false,
         success: function (data) {
             $("#inputInstrument").empty().append("<option></option>");
-            instrumentList = data;
             $.each(data, function (index, object) {
                 var option = "<option value='" + object.id + "'>" + object.name + "</option>";
                 $("#inputInstrument").append(option);
             });
             $(".select2").select2();
         }
-    }).then(PopulatePracticeLog());
+    }).done(function (data) {
+        instrumentList = data;
+        PopulatePracticeLog();
+    });
 }
 
 function GetInstrumentName(instrumentID) {
@@ -52,6 +54,7 @@ function GetInstrumentName(instrumentID) {
 
 function PopulatePracticeLog() {
     var studentID = GetStudentID();
+    $("#table").DataTable().destroy();
     $.ajax({
         url: baseUrl + controller + "/GetPracticeLogList",
         type: "GET",
@@ -71,7 +74,7 @@ function PopulatePracticeLog() {
                 tbody.append(td);
             });
             $("#table-wrapper").removeClass("display-none");
-            $("#table").dataTable({
+            $("#table").DataTable({
                 "dom": "ti",
                 "columnDefs": [
                     {
