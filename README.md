@@ -3,6 +3,8 @@
 This is a learning management system for music tutoring and enables tutors to connect with students. 
 Both website and the database is hosted on Microsoft Azure as an app service and database respectively.
 
+CadenzApp was created as part of the Interaction Design Studio capstone project (UTS), and served as a proof-of-concept for a streamlined music tutoring experience on the online environment.
+
 ## MVP Overview
 
 User account implementation is incomplete on this MVP. During the login screen, any email address and password will log in into a set hard-coded account depending on the account type chosen.
