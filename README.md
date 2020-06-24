@@ -5,7 +5,7 @@ Both website and the database is hosted on Microsoft Azure as an app service and
 
 ## MVP Overview
 
-User account is incomplete on this MVP. During the login screen, any email address and password will log in into a hard coded account depending on the account type chosen.
+User account implementation is incomplete on this MVP. During the login screen, any email address and password will log in into a set hard-coded account depending on the account type chosen.
 
 As of this MVP, features doable on the website are as follows:
 * Assigning task to a student as a tutor
